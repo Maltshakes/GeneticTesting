@@ -120,8 +120,7 @@ public abstract class GeneFormatting {
    * @param dataIndex The index representing the specific pair of genes in the array.
    */
   public void addSexLinkedPairMapping(String label, String value, GeneType type, int dataIndex) {
-    displayEntries.add(
-        new DisplayEntry(label, List.of(value), type, dataIndex).setSexLinked(true));
+    displayEntries.add(new DisplayEntry(label, List.of(value), type, dataIndex).setSexLinked(true));
   }
 
   /**
@@ -506,13 +505,12 @@ public abstract class GeneFormatting {
   /**
    * Transforms autosomal and sex-linked gene data into a displayable list of entries.
    *
-   * <p>This method iterates through {@code displayEntries} to apply visibility logic, 
-   * handle structural elements (headers, breaks), and process polygenic calculations. 
-   * For sex-linked genes in females, it automatically collapses the display to a 
-   * single allele.
+   * <p>This method iterates through {@code displayEntries} to apply visibility logic, handle
+   * structural elements (headers, breaks), and process polygenic calculations. For sex-linked genes
+   * in females, it automatically collapses the display to a single allele.
    *
-   * @param agenes   the raw integer array of autosomal gene values.
-   * @param sgenes   the raw integer array of sex-linked gene values.
+   * @param agenes the raw integer array of autosomal gene values.
+   * @param sgenes the raw integer array of sex-linked gene values.
    * @param isFemale whether to apply single-allele formatting for sex-linked entries.
    * @return a list of {@link BookEntry} objects containing formatted labels and values.
    */

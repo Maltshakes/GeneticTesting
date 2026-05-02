@@ -34,15 +34,15 @@ public class AnimalResolver {
   }
 
   /**
-   * Resolves the mapping definition for a specific entity type and transforms the 
-   * provided gene data into displayable entries.
+   * Resolves the mapping definition for a specific entity type and transforms the provided gene
+   * data into displayable entries.
    *
    * @param entityType the identifier for the animal type.
-   * @param agenes     the raw integer array of autosomal gene values.
-   * @param sgenes     the raw integer array of sex-linked gene values.
-   * @param isFemale   whether the entity is female (affects sex-linked gene display).
-   * @return a list of formatted {@link BookEntry} objects, or {@code null} if the 
-   *         entity type is unknown or autosomal data is missing.
+   * @param agenes the raw integer array of autosomal gene values.
+   * @param sgenes the raw integer array of sex-linked gene values.
+   * @param isFemale whether the entity is female (affects sex-linked gene display).
+   * @return a list of formatted {@link BookEntry} objects, or {@code null} if the entity type is
+   *     unknown or autosomal data is missing.
    */
   public static List<BookEntry> resolveAllEntries(
       String entityType, int[] agenes, int[] sgenes, boolean isFemale) {
