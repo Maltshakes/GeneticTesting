@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "genetictesting:gene_book"
+        }
+    ],
+    "result": {
+        "item": "minecraft:book",
+        "count": 1
+    }
+}
