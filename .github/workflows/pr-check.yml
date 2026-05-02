@@ -1,0 +1,18 @@
+name: Pull request check
+on: [pull_request]
+
+jobs:
+  pull-request-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6.0.2
+      - name: Setup Java
+        uses: actions/setup-java@v5.2.0
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Linting (Spotless)
+        run: ./gradlew spotlessCheck
+      - name: Build & Test
+        run: ./gradlew build
