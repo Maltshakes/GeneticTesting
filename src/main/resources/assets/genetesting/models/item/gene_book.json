@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "genetesting:item/gene_book_cover",
+        "layer1": "genetesting:item/gene_book_paper"
+    }
+}
