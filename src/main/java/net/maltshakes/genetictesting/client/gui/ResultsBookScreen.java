@@ -26,7 +26,7 @@ public class ResultsBookScreen extends Screen {
 
   // The location of the GUI texture for the gene book background
   public static final ResourceLocation BACKGROUND_LOCATION =
-      ResourceLocation.fromNamespaceAndPath("genetesting", "textures/gui/gene_book.png");
+      ResourceLocation.fromNamespaceAndPath("genetictesting", "textures/gui/gene_book.png");
   // The formatted data provider containing the pages and columns to render
   private final GeneBookDisplay display;
   // The index of the currently displayed page (starts at 0).

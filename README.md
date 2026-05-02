@@ -115,8 +115,10 @@ Determine the organization of the text on the book pages.
 
 `addCategory(title)`
 Adds a Bold/Underlined Header for grouping traits.
+
 `addLineBreak()`
 Adds an empty line to separate entries.
+
 `addPageBreak()`
 Forces the next entry to start in a new column, each page is its own column.
 
@@ -125,6 +127,7 @@ Add context or warnings based on the animal's specific genetic makeup.
 
 `addComment(text)`
 Adds static italicized text. Perfect for flavor text or static notes.
+
 `addConditionalComment(text, dataIndex, condition)`
 Also italicized text. Used for the "Lethal Genes". This comment only appears if the specific gene pair meets the defined logic.
 Example: addConditionalComment("§4Warning!", 10, (v1, v2) -> v1 == 2 || v2 == 2);

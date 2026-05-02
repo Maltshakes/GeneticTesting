@@ -45,7 +45,7 @@ public class GeneticTesting {
 
   public GeneticTesting(FMLJavaModLoadingContext context) {
     IEventBus modEventBus = context.getModEventBus();
-    GeneTestingItems.register(modEventBus);
+    GeneticTestingItems.register(modEventBus);
     // Register the commonSetup method for modloading
     modEventBus.addListener(this::commonSetup);
     // Register for server and other game events we are interested in
@@ -61,7 +61,7 @@ public class GeneticTesting {
   // Add items to the creative tab
   private void addCreative(BuildCreativeModeTabContentsEvent event) {
     if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-      event.accept(GeneTestingItems.LIVESTOCK_TAPE_MEASURE);
+      event.accept(GeneticTestingItems.LIVESTOCK_TAPE_MEASURE);
     }
   }
 
@@ -81,7 +81,7 @@ public class GeneticTesting {
             }
             return -1;
           },
-          GeneTestingItems.GENE_BOOK.get());
+          GeneticTestingItems.GENE_BOOK.get());
     }
   }
 
@@ -105,7 +105,7 @@ public class GeneticTesting {
           CompoundTag entityNBT = livingTarget.serializeNBT();
           if (entityNBT.contains("Genetics")) {
             // Initalize new GeneBook item called geneBook
-            ItemStack geneBook = new ItemStack(GeneTestingItems.GENE_BOOK.get());
+            ItemStack geneBook = new ItemStack(GeneticTestingItems.GENE_BOOK.get());
             if (geneBook.getItem() instanceof GeneBookItem geneItem) {
               // Gets all Genetics as a String through the 'Genetics' key
               String fullGeneTag = entityNBT.get("Genetics").toString();
