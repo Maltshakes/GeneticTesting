@@ -18,45 +18,47 @@ import net.minecraft.network.chat.MutableComponent;
  * </ul>
  */
 public class BookEntry {
-  public enum Type {
-    HEADER,
-    GENE_PAIR,
-    COMMENT
-  }
+    public enum Type {
+        HEADER,
+        GENE_PAIR,
+        COMMENT
+    }
 
-  public final Type type;
-  public final Component label;
-  @Nullable public final Component val1;
-  @Nullable public final Component val2;
+    public final Type type;
+    public final Component label;
 
-  // For Headers or comments
-  public BookEntry(Type type, String text) {
-    this.type = type;
-    this.label = Component.literal(text);
-    this.val1 = this.val2 = null;
-  }
+    @Nullable public final Component val1;
 
-  // For genes
-  public BookEntry(String label, Component v1, Component v2) {
-    this.type = Type.GENE_PAIR;
-    this.label = Component.literal(label);
-    this.val1 = v1;
-    this.val2 = v2;
-  }
+    @Nullable public final Component val2;
 
-  public Type getType() {
-    return type;
-  }
+    // For Headers or comments
+    public BookEntry(Type type, String text) {
+        this.type = type;
+        this.label = Component.literal(text);
+        this.val1 = this.val2 = null;
+    }
 
-  public MutableComponent getLabel() {
-    return label.copy();
-  }
+    // For genes
+    public BookEntry(String label, Component v1, Component v2) {
+        this.type = Type.GENE_PAIR;
+        this.label = Component.literal(label);
+        this.val1 = v1;
+        this.val2 = v2;
+    }
 
-  public Component getVal1() {
-    return val1;
-  }
+    public Type getType() {
+        return type;
+    }
 
-  public Component getVal2() {
-    return val2;
-  }
+    public MutableComponent getLabel() {
+        return label.copy();
+    }
+
+    public Component getVal1() {
+        return val1;
+    }
+
+    public Component getVal2() {
+        return val2;
+    }
 }
