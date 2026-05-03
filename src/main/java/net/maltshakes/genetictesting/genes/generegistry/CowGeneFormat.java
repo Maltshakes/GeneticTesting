@@ -82,7 +82,7 @@ public class CowGeneFormat extends GeneFormatting {
         "Max" // +20
     );
 
-    private static final List<String> COW_SHADING_SCALE = List.of(
+    private static final List<String> COW_RED_SHADING_SCALE = List.of(
         "Min", // -14
         "Near Min", "Near Min", // -13 -12
         "Ultra Low", "Ultra Low",// -11 -10
@@ -124,25 +124,17 @@ public class CowGeneFormat extends GeneFormatting {
         addCategory("Genetic tests (color)");
         addPairMapping("Extension", COW_EXTENSION_GENES, GeneType.POLYMORPHIC, 0); // [0,1] - Extension
         addPairMapping("Agouti", COW_AGOUTI_GENES, GeneType.POLYMORPHIC, 2); // [4,5] - Agouti
-        addPairMapping("Dom Red", "e", GeneType.BINARY_INVERTED, 3); // [6,7] - Dominant Red
-        addPairMapping("Dilute", COW_DILUTE_GENES, GeneType.POLYMORPHIC, 1); // [2,3] - Dilutes
-        addPairMapping("Dun", "D", GeneType.BINARY, 64); // [128,129] - Dun Dilute
-        addPairMapping("Chocolate", "c", GeneType.BINARY, 5); // [10,11] - Chocolate Dilute
-        addPairMapping("Roan", "Rn", GeneType.BINARY, 4); // [8,9] - Roan
-        addPairMapping("Speckled", "P", GeneType.BINARY_INVERTED, 7); // [14,15] - Speckled
-        addPairMapping("White Face", COW_WHITEFACE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - White Face
-        addPairMapping("Pinz Extension", COW_WHITEFACEEXT_GENES, GeneType.POLYMORPHIC, 11); // [22,23] - Pinzguaer/White Face Extension
-        addPairMapping("Colorsided", "CS", GeneType.BINARY_INVERTED, 10); // [20,21] - Colorsided
-        addPairMapping("Belted", "Be", GeneType.BINARY, 125); // [250,251] - Belted
-        addPairMapping("Blaze", "Bl", GeneType.BINARY, 126); // [252,253] - Blaze
-        addLegacyMapping("Legacy Belted", COW_LEGACY_BELTED_GENES, GeneType.POLYMORPHIC, 9, 4); // [18,19] - Legacy Belted
+        addPairMapping("Dom. Red", "e", GeneType.BINARY_INVERTED, 3); // [6,7] - Dominant Red
+        addPairMapping("Dilute", COW_DILUTE_GENES, GeneType.POLYMORPHIC, 1); // [2,3] - Simmental and Charolois Dilutes
+        addPairMapping("Dun", "D", GeneType.BINARY, 64); // [128,129] - Dun Dilute, aka chinchilla
+        addPairMapping("Chocolate", "c", GeneType.BINARY, 5); // [10,11] - Chocolate Dilute, aka... another dun
         addPairMapping("Mealy", COW_MEALY_GENES, GeneType.POLYMORPHIC, 12); // [24,25] - Mealy
         addPairMapping("Eelstripe", "eel", GeneType.BINARY, 60); // [120,121] - Eelstripe
         addPolyScaleMapping("Rufousing", COW_RUFOUS_SCALE,
             IntStream.rangeClosed(130, 149).toArray(), // [130-149] - Yellow Rufousing (-red)
             IntStream.rangeClosed(150, 169).toArray() // [150-169] - Burgandy Rufousing (+red)
         );
-        addPolyScaleMapping("Red Shading", COW_SHADING_SCALE,
+        addPolyScaleMapping("Red Shading", COW_RED_SHADING_SCALE,
             IntStream.rangeClosed(170, 183).toArray(), // [170-183] - lighter
             IntStream.rangeClosed(184, 199).toArray() // [184-199] - darker
         );
@@ -150,6 +142,14 @@ public class CowGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(200, 225).toArray(), // [200-225] - lighter pattern
             IntStream.rangeClosed(226, 249).toArray() // [226-249] - darker pattern
         );
+        addPairMapping("Roan", "Rn", GeneType.BINARY, 4); // [8,9] - Roan
+        addPairMapping("Speckled", "P", GeneType.BINARY_INVERTED, 7); // [14,15] - Speckled
+        addPairMapping("White Face", COW_WHITEFACE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - White Face
+        addPairMapping("Pinz. Extension", COW_WHITEFACEEXT_GENES, GeneType.POLYMORPHIC, 11); // [22,23] - Pinzguaer/White Face Extension
+        addPairMapping("Colorsided", "CS", GeneType.BINARY_INVERTED, 10); // [20,21] - Colorsided
+        addPairMapping("Belted", "Be", GeneType.BINARY, 125); // [250,251] - Belted
+        addPairMapping("Blaze", "Bl", GeneType.BINARY, 126); // [252,253] - Blaze
+        addLegacyMapping("Legacy Belted", COW_LEGACY_BELTED_GENES, GeneType.POLYMORPHIC, 9, 4); // [18,19] - Legacy Belted
     }
 }
 // spotless:on

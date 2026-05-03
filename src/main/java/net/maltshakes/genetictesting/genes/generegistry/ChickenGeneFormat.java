@@ -16,7 +16,7 @@ public class ChickenGeneFormat extends GeneFormatting {
     private static final List<String> CHICKEN_DOMWHITE_GENES = List.of(
         "0",
         "I", // Dom White
-        "+", // Wildtype
+        "+", // Wildtype/Red Jungle Fowl (aka "i")
         "D", // Dun
         "S" // Smokey
     );
@@ -39,8 +39,8 @@ public class ChickenGeneFormat extends GeneFormatting {
         "0",
         "R", // Birchen
         "+", // Duckwing/Wildtype
-        "Wh", // Wheaten
-        "b", // Partiridge
+        "wh", // Wheaten
+        "b", // Partridge
         "E" // Extended black
     );
 
@@ -72,20 +72,20 @@ public class ChickenGeneFormat extends GeneFormatting {
         addLineBreak();
         addComment("Autosomal Genes");
         addPairMapping("Extension", CHICKEN_EXTENSION_GENES, GeneType.POLYMORPHIC, 12); // [24,25] - D Locus / Extension
-        addPairMapping("Dom. white", CHICKEN_DOMWHITE_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Dominant white
-        addPairMapping("Rec. white", CHICKEN_RECWHITE_GENES, GeneType.POLYMORPHIC, 10); // [20,21] - Recessive white
-        addPairMapping("Autosomal Red", "R", GeneType.BINARY_INVERTED, 85); // [170,171] - Autosomal Red
         addPairMapping("Pattern", "Pg", GeneType.BINARY_INVERTED, 13); // [26,27] - Pattern
         addPairMapping("Colombian", "Co", GeneType.BINARY_INVERTED, 14); // [28,29] - Colombian
-        addPairMapping("Melanized", "M1", GeneType.BINARY_INVERTED, 15); // [30,31] - Melanized
-        addPairMapping("Mahogany", "Mh", GeneType.BINARY_INVERTED, 17); // [34,35] - Mahogany
-        addPairMapping("Lavender", "lav", GeneType.BINARY, 18); // [36,37] - Lavender
-        addPairMapping("Dilute", CHICKEN_DILUTE_GENES, GeneType.POLYMORPHIC, 16); // [32,33] - Dilute
-        addPairMapping("Cream", "ig", GeneType.BINARY, 142); // [284,285] - Cream/Inhibitor of Gold
-        addPairMapping("Mottled", CHICKEN_MOTTLED_GENES, GeneType.POLYMORPHIC, 11); // [22,23] - Mottled
-        addPairMapping("Splash", "Bl", GeneType.BINARY, 20); // [40,41] - Splash/Blue
+        addPairMapping("Melanized", "Ml", GeneType.BINARY_INVERTED, 15); // [30,31] - Melanized
         addPairMapping("Darkbrown", "db", GeneType.BINARY_INVERTED, 49); // [98,99] - Darkbrown
         addPairMapping("Charcoal", "cha", GeneType.BINARY, 50); // [100,101] - Charcoal
+        addPairMapping("Mahogany", "Mh", GeneType.BINARY_INVERTED, 17); // [34,35] - Mahogany
+        addPairMapping("Dilute", CHICKEN_DILUTE_GENES, GeneType.POLYMORPHIC, 16); // [32,33] - Dilute
+        addPairMapping("Lavender", "lav", GeneType.BINARY, 18); // [36,37] - Lavender
+        addPairMapping("Splash", "Bl", GeneType.BINARY, 20); // [40,41] - Splash/Blue
+        addPairMapping("Cream", "ig", GeneType.BINARY, 142); // [284,285] - Cream/Gold Inhibitor of Gold
+        addPairMapping("Dom. white", CHICKEN_DOMWHITE_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Dominant white
+        addPairMapping("Rec. white", CHICKEN_RECWHITE_GENES, GeneType.POLYMORPHIC, 10); // [20,21] - Recessive white
+        addPairMapping("Autosomal Red", "Ar", GeneType.BINARY_INVERTED, 85); // [170,171] - Autosomal Red
+        addPairMapping("Mottled", CHICKEN_MOTTLED_GENES, GeneType.POLYMORPHIC, 11); // [22,23] - Mottled
         addPairMapping("Fibromelanin", "Fm", GeneType.BINARY_INVERTED, 21); // [42,43] - Fibromelanin
         // Shank colors can also be affected by other genes like extension and columbian
         addPairMapping("Yellow Shanks", CHICKEN_YELSHANK_GENES, GeneType.POLYMORPHIC, 22); // [44,45] - Yellow Shanks

@@ -37,7 +37,7 @@ public class PigGeneFormat extends GeneFormatting {
         "0",
         "LI", // Legacy Dom White
         "Be", // Belted
-        "i", // Wildtype
+        "+", // Wildtype
         "LP", // Legacy Patch
         "Rn", // Roan
         "1", // Dom White
@@ -134,20 +134,19 @@ public class PigGeneFormat extends GeneFormatting {
         addPairMapping("Subtle Dilute", "di", GeneType.BINARY, 3); // [6,7] - Subtle Dilute
         addPairMapping("Blonde", "e", GeneType.BINARY, 79); // [158,159] - Blonde
         addPairMapping("TYRP1", PIG_TYRP1_GENES, GeneType.POLYMORPHIC, 4); // [8,9] - TYRP1
-        addPairMapping("Tamsworth", "P", GeneType.BINARY, 31); // [62,63] - Tamsworth
+        addPairMapping("Tamsworth", "T", GeneType.BINARY, 31); // [62,63] - Tamsworth
         addPairMapping("KITLG", "P", GeneType.BINARY, 32); // [64,65] - Oops All Spots
         addPairMapping("Wideband", "w", GeneType.BINARY, 82); // [164,165] - Wideband
-        addPairMapping("KIT", PIG_KIT_GENES, GeneType.POLYMORPHIC, 6); // [12,13] - KIT
-        addPairMapping("White Points", PIG_WP_GENES, GeneType.POLYMORPHIC, 7); // [14,15] - White Points
-        addPairMapping("White Extension", PIG_WE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - White Extension
-        addPairMapping("MITF", "H", GeneType.BINARY, 95); // [190,191] - Hereford/Splash
-        addLineBreak();
         addPolyScaleMapping("Rufousing", PIG_RUFOUS_SCALE, 
          IntStream.rangeClosed(120, 133).toArray(), // [120-133] -red
          IntStream.rangeClosed(134, 147).toArray() // [134-147] +red
         );
         addPolyRangeMapping("Darkness", PIG_DARKNESS_SCALE, 150, 157); // [150-157] Darkness
         addPolyRangeMapping("Desaturation", PIG_DESAT_SCALE, 192, 201); // [192-201] Desaturation
+        addPairMapping("KIT", PIG_KIT_GENES, GeneType.POLYMORPHIC, 6); // [12,13] - KIT
+        addPairMapping("White Points", PIG_WP_GENES, GeneType.POLYMORPHIC, 7); // [14,15] - White Points
+        addPairMapping("White Extension", PIG_WE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - White Extension
+        addPairMapping("MITF", "H", GeneType.BINARY, 95); // [190,191] - Hereford/Splash
         addPairMapping("Blue Eyes", "blu", GeneType.BINARY, 80); // [160,161] Heterochromia
 
         // addPolyRangeMapping("Fat Adder", PIG_FATADDER_SCALE, 174, 181, 10); // [174-181] Fat Adder

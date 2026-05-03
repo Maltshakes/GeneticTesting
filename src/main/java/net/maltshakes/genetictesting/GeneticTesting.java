@@ -31,7 +31,9 @@ import org.slf4j.Logger;
 // TODO
 // Add recessive/phenotype filter with config options
 // Reference genetic bettas github so bettas can also be in test world
-// Put genes in logical order (bettas, chickens, cows, pigs, sheep)
+// Figure out what to do with tape measure item
+// Put genes in logical order (bettas)
+// Map out the new turtle genes
 // Github wiki documentation
 // Backport to 1.18.2
 
@@ -114,14 +116,14 @@ public class GeneticTesting {
                             String fullGeneTag = entityNBT.get("Genetics").toString();
                             int[] agenes = GeneHelpers.extractIntFromArray(fullGeneTag, "AGenes");
                             int[] sgenes = GeneHelpers.extractIntFromArray(fullGeneTag, "SGenes");
-                            boolean isFemale = entityNBT.getBoolean("IsFemale");
+                            boolean isHemizygous = entityNBT.getBoolean("IsFemale");
                             if (agenes != null) {
                                 // Gets the entityType (what kind of entity is being handled)
                                 String entityType =
                                         EntityType.getKey(livingTarget.getType()).toString();
                                 List<BookEntry> bookEntries =
                                         AnimalResolver.resolveAllEntries(
-                                                entityType, agenes, sgenes, isFemale);
+                                                entityType, agenes, sgenes, isHemizygous);
                                 GeneFormatting geneFormat = AnimalResolver.getFormat(entityType);
                                 if (geneFormat != null) {
                                     // Gets the book colour set to the animal

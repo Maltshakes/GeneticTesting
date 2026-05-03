@@ -49,9 +49,9 @@ public class AxolotlGeneFormat extends GeneFormatting {
         "0",
         "+", // Wildtype
         "D", // Dark Eyes
-        "P", // Pigmented Eyes
+        "Pi", // Pigmented Eyes
         "L", // Light Eyes
-        "P", // Pastel Eyes
+        "Ps", // Pastel Eyes
         "GFP" // Green/Glow Fluorescent Protein
     );
 
@@ -59,7 +59,7 @@ public class AxolotlGeneFormat extends GeneFormatting {
         "0",
         "+", // Wildtype (Natural Pink)
         "Whi", // White
-        "LiGr", // Light Gray
+        "LGr", // Light Gray
         "Gr", // Gray
         "Bla", // Black
         "Br", // Brown
@@ -70,7 +70,7 @@ public class AxolotlGeneFormat extends GeneFormatting {
         "Lim", // Lime
         "Gre", // Green
         "Cya", // Cyan
-        "LiBlu", // Light Blue
+        "LBl", // Light Blue
         "Blu", // Blue
         "Pur", // Purple
         "Mag" // Magenta
