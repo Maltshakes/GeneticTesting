@@ -28,9 +28,9 @@ public class CowGeneFormat extends GeneFormatting {
         "0",
         "b", // Dark Agouti
         "+", // Wildtype
-        "W", // White-Bellied Agouti
+        "w", // White-Bellied Agouti
         "BR", // Brindle
-        "F", // Fawn
+        "f", // Fawn
         "a" // Recessive Black
     );
 
@@ -44,9 +44,9 @@ public class CowGeneFormat extends GeneFormatting {
 
     private static final List<String> COW_WHITEFACEEXT_GENES = List.of(
         "0",
-        "+", // + Spots
+        "pl", // + Spots
         "0", // Normal
-        "-" // - Spots
+        "mi" // - Spots
     );
 
     private static final List<String> COW_LEGACY_BELTED_GENES = List.of(

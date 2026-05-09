@@ -40,7 +40,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         "R", // Birchen
         "+", // Duckwing/Wildtype
         "wh", // Wheaten
-        "b", // Partridge
+        "b", // Partridge/Brown
         "E" // Extended black
     );
 
@@ -66,7 +66,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         addSexLinkedPairMapping("Gold", CHICKEN_GOLD_GENES, GeneType.POLYMORPHIC, 0); // [0, 1] // Gold
         addSexLinkedPairMapping("Chocolate", "c", GeneType.BINARY, 1); // [2, 3] // Gold
         addSexLinkedPairMapping("Barred", "b", GeneType.BINARY, 3); // [6, 7] // Barred
-        addSexLinkedPairMapping("Fibro Supressor", "f", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
+        addSexLinkedPairMapping("Fibro Suppressor", "f", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
         // Males work same as AGenes. Females carry have two alleles for each locus, but only the first allele of each pair is used for females, second one is ignored.
         // Fuck Omni Genders
         addLineBreak();

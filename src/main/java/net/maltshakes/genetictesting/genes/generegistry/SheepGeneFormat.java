@@ -61,6 +61,18 @@ public class SheepGeneFormat extends GeneFormatting {
         "b" // Blaze
     );
 
+    private static final List<String> SHEEP_WHITE_EXPANSION_GENES = List.of(
+        "0",
+        "8", // max, array value: 1
+        "7", // near max
+        "6", // high
+        "5", // medium
+        "4", // medium
+        "3", // low
+        "2", // near min
+        "1" // min, array value: 8
+    );
+
     private static final List<String> SHEEP_RUFOUS_SCALE = List.of(
         "Min", // -8
         "Near Min", // -7
@@ -91,12 +103,13 @@ public class SheepGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(74, 81).toArray(), // [74,81] - red rufousing
             IntStream.rangeClosed(82, 89).toArray()  // [82,89] + red rufousing
         );
-        addPairMapping("Piebald", "pi", GeneType.BINARY, 4); // [8,9] - Piebald
-        addPairMapping("Ticking", "Ti", GeneType.BINARY, 35); // [70,71] - Ticking
-        addPairMapping("Blaze", SHEEP_BLAZE_GENES, GeneType.POLYMORPHIC, 51); // [102,103] - Blaze
         addPairMapping("Mealy", "M", GeneType.BINARY_INVERTED, 45); // [90,91] - Mealy
+        addPairMapping("Blaze", SHEEP_BLAZE_GENES, GeneType.POLYMORPHIC, 51); // [102,103] - Blaze
+        addPairMapping("Piebald", "pi", GeneType.BINARY, 4); // [8,9] - Piebald
         addPairMapping("Pigmented Head", SHEEP_PIGMENTED_HEAD_GENES, GeneType.POLYMORPHIC, 34); // [68,69] - Pigmented Head
+        addPairMapping("White Expansion", SHEEP_WHITE_EXPANSION_GENES, GeneType.POLYMORPHIC, 9); // [18,19] - White spot expansion for Persian, 8 values. Less white is more dominant
         addPairMapping("Roan", "Rn", GeneType.BINARY, 50); // [100,101] - Roan
+        addPairMapping("Ticking", "Ti", GeneType.BINARY, 35); // [70,71] - Ticking
         addLineBreak();
         addConditionalComment("AFL is homo lethal! Sheep with two copies of the gene die at birth", 34, (v1, v2) -> v1 == 2 || v2 == 2);
         addConditionalComment("Rn is homo lethal! Sheep with two copies of the gene die at birth", 50, (v1, v2) -> v1 == 2 || v2 == 2);

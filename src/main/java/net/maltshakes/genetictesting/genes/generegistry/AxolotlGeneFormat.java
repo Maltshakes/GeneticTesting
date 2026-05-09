@@ -87,7 +87,7 @@ public class AxolotlGeneFormat extends GeneFormatting {
         addPairMapping("Leucistic", "d", GeneType.BINARY, 4); // [8,9] - Leucistic
         addPairMapping("Splash", AXOLOTL_SPLASH_GENES, GeneType.POLYMORPHIC, 6); // [12,13] - Whitebelly/Piebald
         // Strength of white markings. Sum ((14 + 15)-2)*0.3 to get strength. Remove decimal to get which of 5 textures from 0 - 4 shows
-        addPairMapping("Splash Strength", AXOLOTL_SPLOTCH_STRENGTH_GENES, GeneType.POLYMORPHIC, 7); // [14,15] - Strength of splash gene expression, uses above formula
+        addPairMapping("Splash Expansion", AXOLOTL_SPLOTCH_STRENGTH_GENES, GeneType.POLYMORPHIC, 7); // [14,15] - Strength of splash gene expression, uses above formula
         addPairMapping("Speck Factor", AXOLOTL_SPLOTCH_TYPE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - Splotch cleanliness, higher number is dominant, 1-2 is clean edges, 3-4 is hard speckle, 5-6 is soft speckle. As factor gets higher the white gets messier
         addPairMapping("Cheekspots", "CS", GeneType.BINARY, 22); // [44,45] - Cheekspots
         addPageBreak();

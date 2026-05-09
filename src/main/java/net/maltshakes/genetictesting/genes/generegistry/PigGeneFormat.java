@@ -11,7 +11,7 @@ public class PigGeneFormat extends GeneFormatting {
     private static final List<String> PIG_EXTENSION_GENES = List.of(
         "0",
         "D1", // Dom Black (MCR1)
-        "E", // Wildtype
+        "+", // Wildtype
         "p", // Brindle/Partial Extension
         "e", // Red
         "D2" // Dom Black (MCR2)
@@ -19,7 +19,7 @@ public class PigGeneFormat extends GeneFormatting {
 
     private static final List<String> PIG_AGOUTI_GENES = List.of(
         "0",
-        "A", // Wildtype
+        "+", // Wildtype
         "B", // Legacy Brown
         "w", // Whitebelly
         "a", // Non-Agouti
@@ -57,9 +57,9 @@ public class PigGeneFormat extends GeneFormatting {
 
     private static final List<String> PIG_WE_GENES = List.of(
         "0",
-        "-", // Undermarked
+        "mi", // Undermarked
         "0", // Medium
-        "+" // Overmarked
+        "pl" // Overmarked
     );
 
     private static final List<String> PIG_DESAT_SCALE = List.of(

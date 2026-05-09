@@ -10,21 +10,21 @@ public class RabbitGeneFormat extends GeneFormatting{
     private static final List<String> RABBIT_EXTENSION_GENES = List.of(
         "0",
         "S", // Steel
-        "E", // Extension/Wildtype
+        "+", // Extension/Wildtype
         "j", // Brindle/Japanese
         "e" // Non Extension
     );
     
     private static final List<String> RABBIT_AGOUTI_GENES = List.of(
         "0",
-        "A", // Agouti/Wildtype
+        "+", // Agouti/Wildtype
         "t", // Tan
         "a" // Self
     );
 
     private static final List<String> RABBIT_COLOUR_GENES = List.of(
         "0",
-        "C", // Full Color/Wildtype
+        "+", // Full Color/Wildtype
         "chd", // Dark Chinchilla
         "chl", // Light Chincilla
         "h", // Himalayan

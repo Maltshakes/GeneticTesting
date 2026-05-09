@@ -140,7 +140,6 @@ public class BettaGeneFormat extends GeneFormatting {
         addPolyRangeMapping("Fin Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 28, 31); // [20-23] Fin Iri Level
         addPairMapping("Iri Rims", "R", GeneType.BINARY, 33); // [66,67] - Iri rims
         addPolyRangeMapping("Iri Rim Level", BETTA_LOW_HIGH_LEVEL_SCALE, 68, 71); // [50-55] Iri Rims Level
-        addPairMapping("Iri Spread", "Si", GeneType.BINARY, 1); // [2,3] - Spread Iridescence
         addPairMapping("Masked Iri", "M", GeneType.BINARY, 2); // [4,5] - Masked Iridescence
         addPolyRangeMapping("Masked Iri Area", BETTA_MASK_IRI_SCALE, 50, 55); // [50-55] Masked Iri Area
         addCustomBettaPolyScaleMapping("Iri intensity", BETTA_IRI_INTENSITY_SCALE,
@@ -162,10 +161,11 @@ public class BettaGeneFormat extends GeneFormatting {
         addPairMapping("Bloodred Mask", "BR", GeneType.BINARY, 78); // [156,157] - Bloodred Mask
         addPairMapping("Opaque", "Op", GeneType.BINARY, 20); // [40,41] - Opaque
         addPairMapping("Non Red", BETTA_NONRED_GENES, GeneType.POLYMORPHIC, 21); // [42,43] - Non Red
-        addPairMapping("Marble", BETTA_MARBLE_GENES, GeneType.POLYMORPHIC, 40); // [80,81] - Marble/Vanda
+        addPairMapping("Iri Spread", "Si", GeneType.BINARY, 1); // [2,3] - Spread Iridescence
         addPairMapping("Butterfly", "B", GeneType.BINARY, 9); // [18,19] - Butterfly
         
         addPolyRangeMapping("Butterfly Level", BETTA_LOW_HIGH_LEVEL_SCALE, 20, 23); // [20-23] Butterfly Level
+        addPairMapping("Marble", BETTA_MARBLE_GENES, GeneType.POLYMORPHIC, 40); // [80,81] - Marble/Vanda
         // Red Marble Layer
         addPolyScaleMapping("Red Marble Size", BETTA_MARBLE_SIZE_SCALE, 
             IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
