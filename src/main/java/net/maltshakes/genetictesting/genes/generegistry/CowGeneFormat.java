@@ -14,19 +14,19 @@ public class CowGeneFormat extends GeneFormatting {
         "+", // Wildtype 
         "e", // Red
         "BR", // Black-red
-        "m" // Masked
+        "M" // Masked
     );
 
     private static final List<String> COW_DILUTE_GENES = List.of(
         "0",
         "+", // Wildtype
-        "s", // Simmental Dilute
-        "c" // Charolais Dilute
+        "S", // Simmental Dilute
+        "C" // Charolais Dilute
     );
 
     private static final List<String> COW_AGOUTI_GENES = List.of(
         "0",
-        "b", // Dark Agouti
+        "B", // Dark Agouti/Blackish
         "+", // Wildtype
         "w", // White-Bellied Agouti
         "BR", // Brindle

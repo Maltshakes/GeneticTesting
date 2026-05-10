@@ -16,10 +16,10 @@ public class LlamaGeneFormat extends GeneFormatting {
 
     private static final List<String> LLAMA_AGOUTI_GENES = List.of(
         "0", 
-        "pf", // Pale Shaded Fawn
+        "PF", // Pale Shaded Fawn
         "+", // Wildtype
         "r", // Black trimmed Red
-        "A", // Bay
+        "a", // Bay
         "m", // Mahogany
         "t", // Black and Tan
         "a" // Recessive Black
