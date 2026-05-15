@@ -2,7 +2,6 @@ package net.maltshakes.genetictesting;
 
 import com.mojang.logging.LogUtils;
 
-import mokiyoki.enhancedanimals.GeneticAnimals;
 import mokiyoki.enhancedanimals.entity.EnhancedAnimalAbstract;
 
 import java.util.List;
@@ -34,7 +33,6 @@ import org.slf4j.Logger;
 
 // TODO
 // Add custom scale for golden in turtles
-// Fix our book blocking RHG book from working
 // Reference genetic bettas github so bettas can also be in test world
 // Put genes in logical order (bettas)
 // Github wiki documentation

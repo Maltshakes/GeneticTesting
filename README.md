@@ -34,12 +34,10 @@ public class MyAnimalFormat extends GeneFormatting {
 Graph that shows how the event is handled when a player interacts with an animal using a vanilla book.
 ```mermaid
 graph TD
-    A[Player Interacts with Entity] --> B{Item is Vanilla Book?}
+    A[Player Interacts with Entity] --> B{Item is Vanilla Book? AND Entity Is LivingEntity AND Entity is EnhancedAnimalAbstract}
     B -- No --> C[End Event]
-    B -- Yes --> D{Is LivingEntity?}
     
-    D -- Yes --> E{Server Side?}
-    D -- No --> C
+    B -- Yes --> E{Server Side?}
     
     E -- Yes --> F[Read Entity NBT]
     F --> G{Has 'Genetics' Tag?}
