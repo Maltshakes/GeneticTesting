@@ -138,16 +138,10 @@ public class BettaGeneFormat extends GeneFormatting {
         );
         addPolyRangeMapping("Body Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 24, 27); // [20-23] Body Iri Level
         addPolyRangeMapping("Fin Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 28, 31); // [20-23] Fin Iri Level
-        addPairMapping("Iri Rims", "R", GeneType.BINARY, 33); // [66,67] - Iri rims
-        addPolyRangeMapping("Iri Rim Level", BETTA_LOW_HIGH_LEVEL_SCALE, 68, 71); // [50-55] Iri Rims Level
-        addPairMapping("Masked Iri", "M", GeneType.BINARY, 2); // [4,5] - Masked Iridescence
-        addPolyRangeMapping("Masked Iri Area", BETTA_MASK_IRI_SCALE, 50, 55); // [50-55] Masked Iri Area
         addCustomBettaPolyScaleMapping("Iri intensity", BETTA_IRI_INTENSITY_SCALE,
             new int[]{32, 33},
             new int[]{34, 35}
         );
-        // NEED ADDED: Iri intensity genes 32-35, 32/33 = +/higher/lower, 34/35 = +/lower
-        
         // Black layer
         addPairMapping("Melano Black", "m", GeneType.BINARY, 3); // [6,7] - Melano Black (homo females are infertile)
         addPairMapping("Laced Black", "fb", GeneType.BINARY, 4); // [8,9] - Fertile/Laced Black
@@ -162,8 +156,11 @@ public class BettaGeneFormat extends GeneFormatting {
         addPairMapping("Opaque", "Op", GeneType.BINARY, 20); // [40,41] - Opaque
         addPairMapping("Non Red", BETTA_NONRED_GENES, GeneType.POLYMORPHIC, 21); // [42,43] - Non Red
         addPairMapping("Iri Spread", "Si", GeneType.BINARY, 1); // [2,3] - Spread Iridescence
+        addPairMapping("Masked Iri", "M", GeneType.BINARY, 2); // [4,5] - Masked Iridescence
+        addPolyRangeMapping("Masked Iri Area", BETTA_MASK_IRI_SCALE, 50, 55); // [50-55] Masked Iri Area
+        addPairMapping("Iri Rims", "R", GeneType.BINARY, 33); // [66,67] - Iri rims
+        addPolyRangeMapping("Iri Rim Level", BETTA_LOW_HIGH_LEVEL_SCALE, 68, 71); // [50-55] Iri Rims Level
         addPairMapping("Butterfly", "B", GeneType.BINARY, 9); // [18,19] - Butterfly
-        
         addPolyRangeMapping("Butterfly Level", BETTA_LOW_HIGH_LEVEL_SCALE, 20, 23); // [20-23] Butterfly Level
         addPairMapping("Marble", BETTA_MARBLE_GENES, GeneType.POLYMORPHIC, 40); // [80,81] - Marble/Vanda
         // Red Marble Layer

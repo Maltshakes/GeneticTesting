@@ -1,6 +1,10 @@
 package net.maltshakes.genetictesting;
 
 import com.mojang.logging.LogUtils;
+
+import mokiyoki.enhancedanimals.GeneticAnimals;
+import mokiyoki.enhancedanimals.entity.EnhancedAnimalAbstract;
+
 import java.util.List;
 import net.maltshakes.genetictesting.genes.datamodel.BookEntry;
 import net.maltshakes.genetictesting.genes.format.GeneFormatting;
@@ -29,12 +33,13 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // TODO
-// Add recessive/phenotype filter with config options
+// Add custom scale for golden in turtles
+// Fix our book blocking RHG book from working
 // Reference genetic bettas github so bettas can also be in test world
-// Figure out what to do with tape measure item
 // Put genes in logical order (bettas)
-// Map out the new turtle genes
 // Github wiki documentation
+// Figure out what to do with tape measure item
+// Add recessive/phenotype filter with config options
 // Backport to 1.18.2
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -105,7 +110,7 @@ public class GeneticTesting {
             Player player = event.getEntity();
             Entity target = event.getTarget();
             // Check if item is a vanilla book and player interacts with LivingEntity
-            if (stack.is(Items.BOOK) && target instanceof LivingEntity livingTarget) {
+            if (stack.is(Items.BOOK) && target instanceof LivingEntity livingTarget && target instanceof EnhancedAnimalAbstract) {
                 if (!event.getLevel().isClientSide()) {
                     CompoundTag entityNBT = livingTarget.serializeNBT();
                     if (entityNBT.contains("Genetics")) {

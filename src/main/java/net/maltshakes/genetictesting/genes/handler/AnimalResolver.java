@@ -30,7 +30,7 @@ public class AnimalResolver {
         animalMappings.put("eanimod:enhanced_rabbit", new RabbitGeneFormat());
         animalMappings.put("eanimod:enhanced_sheep", new SheepGeneFormat());
         animalMappings.put("eanimod:enhanced_turtle", new TurtleGeneFormat());
-        animalMappings.put("eanimod:enhanced_betta", new BettaGeneFormat());
+        animalMappings.put("geneticbettas:enhanced_betta", new BettaGeneFormat());
     }
 
     /**
