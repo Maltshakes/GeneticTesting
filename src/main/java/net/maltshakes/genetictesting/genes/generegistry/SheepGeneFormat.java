@@ -40,7 +40,7 @@ public class SheepGeneFormat extends GeneFormatting {
         "+", // Wildtype
         "AFL", // Afghan Lethal
         "PT", // Turkish
-        "P" // Persian
+        "p" // Persian
     );
 
     private static final List<String> SHEEP_REDINHIB_GENES = List.of(

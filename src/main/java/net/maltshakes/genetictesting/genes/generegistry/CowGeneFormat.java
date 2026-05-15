@@ -39,7 +39,7 @@ public class CowGeneFormat extends GeneFormatting {
         "H", // Hereford
         "P", // Pinzgauer
         "+", // Wildtype
-        "p" // Piebald
+        "pi" // Piebald
     );
 
     private static final List<String> COW_WHITEFACEEXT_GENES = List.of(
@@ -59,8 +59,8 @@ public class CowGeneFormat extends GeneFormatting {
 
     private static final List<String> COW_MEALY_GENES = List.of(
         "0",
-        "NM", // No nose ring
-        "m", // Wildtype
+        "+", // No nose ring/wildtype
+        "m", // Mealy
         "ex" // Extended Mealy
     );
 

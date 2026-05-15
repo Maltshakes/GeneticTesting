@@ -10,7 +10,7 @@ public class ChickenGeneFormat extends GeneFormatting {
     private static final List<String> CHICKEN_GOLD_GENES = List.of(
         "0",
         "g", // gold
-        "s" // silver
+        "S" // silver
     );
 
     private static final List<String> CHICKEN_DOMWHITE_GENES = List.of(
@@ -66,7 +66,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         addSexLinkedPairMapping("Gold", CHICKEN_GOLD_GENES, GeneType.POLYMORPHIC, 0); // [0, 1] // Gold
         addSexLinkedPairMapping("Chocolate", "c", GeneType.BINARY, 1); // [2, 3] // Gold
         addSexLinkedPairMapping("Barred", "b", GeneType.BINARY, 3); // [6, 7] // Barred
-        addSexLinkedPairMapping("Fibro Suppressor", "f", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
+        addSexLinkedPairMapping("Fibro Suppressor", "F", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
         // Males work same as AGenes. Females carry have two alleles for each locus, but only the first allele of each pair is used for females, second one is ignored.
         // Fuck Omni Genders
         addLineBreak();
