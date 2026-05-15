@@ -1,7 +1,6 @@
 package net.maltshakes.genetictesting.genes.generegistry;
 
 import java.util.List;
-
 import net.maltshakes.genetictesting.genes.datamodel.GeneDefinition.GeneType;
 import net.maltshakes.genetictesting.genes.format.GeneFormatting;
 

@@ -1,10 +1,8 @@
 package net.maltshakes.genetictesting;
 
 import com.mojang.logging.LogUtils;
-
-import mokiyoki.enhancedanimals.entity.EnhancedAnimalAbstract;
-
 import java.util.List;
+import mokiyoki.enhancedanimals.entity.EnhancedAnimalAbstract;
 import net.maltshakes.genetictesting.genes.datamodel.BookEntry;
 import net.maltshakes.genetictesting.genes.format.GeneFormatting;
 import net.maltshakes.genetictesting.genes.handler.AnimalResolver;
@@ -108,7 +106,9 @@ public class GeneticTesting {
             Player player = event.getEntity();
             Entity target = event.getTarget();
             // Check if item is a vanilla book and player interacts with LivingEntity
-            if (stack.is(Items.BOOK) && target instanceof LivingEntity livingTarget && target instanceof EnhancedAnimalAbstract) {
+            if (stack.is(Items.BOOK)
+                    && target instanceof LivingEntity livingTarget
+                    && target instanceof EnhancedAnimalAbstract) {
                 if (!event.getLevel().isClientSide()) {
                     CompoundTag entityNBT = livingTarget.serializeNBT();
                     if (entityNBT.contains("Genetics")) {
