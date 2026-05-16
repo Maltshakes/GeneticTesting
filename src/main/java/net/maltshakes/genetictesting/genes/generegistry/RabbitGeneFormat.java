@@ -40,7 +40,7 @@ public class RabbitGeneFormat extends GeneFormatting{
         addPairMapping("Color", RABBIT_COLOUR_GENES, GeneType.POLYMORPHIC, 2); // [4,5] - Color completion
         addPairMapping("Chocolate", "b", GeneType.BINARY, 1); // [2,3] - Brown/Chocolate
         addPairMapping("Dilute", "d", GeneType.BINARY, 3); // [6,7] - Dilute
-        addPairMapping("Lutino", "p", GeneType.BINARY, 8); // [16,17] - Lutino
+        addPairMapping("Lutino", "p", GeneType.BINARY, 10); // [20,21] - Lutino
         addPairMapping("Spotted", "En", GeneType.BINARY, 5); // [10,11] - English Spotting/Broken/Charlie
         addPairMapping("Dutch", "du", GeneType.BINARY, 6); // [12,13] - Dutch
         addPairMapping("Vienna", "v", GeneType.BINARY, 7); // [14,15] - Vienna

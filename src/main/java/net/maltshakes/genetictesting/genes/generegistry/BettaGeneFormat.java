@@ -127,7 +127,6 @@ public class BettaGeneFormat extends GeneFormatting {
     );
 
     public BettaGeneFormat() {
-        // Add dragonscale and dragonscale modifier
         setBookColour(0x4B52B0); // Blue
         addCategory("Genetic tests (color)");
         // Blue layer
@@ -138,7 +137,7 @@ public class BettaGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(214, 223).toArray(), // [214,223] greener (lighter)
             IntStream.rangeClosed(224, 233).toArray()  // [224,233] bluer (darker)
         );
-        addCustomBettaPolyScaleMapping("Iri intensity", BETTA_IRI_INTENSITY_SCALE,
+        addCustomBettaPolyScaleMapping("Iri Intensity", BETTA_IRI_INTENSITY_SCALE,
             new int[]{32, 33},
             new int[]{34, 35}
         );

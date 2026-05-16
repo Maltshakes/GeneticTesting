@@ -44,7 +44,7 @@ public class SheepGeneFormat extends GeneFormatting {
     );
 
     private static final List<String> SHEEP_REDINHIB_GENES = List.of(
-        "0",
+        "L", // Legacy
         "+", // Wildtype
         "Da", // Darker
         "Ta", // Tan
@@ -103,7 +103,7 @@ public class SheepGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(74, 81).toArray(), // [74,81] - red rufousing
             IntStream.rangeClosed(82, 89).toArray()  // [82,89] + red rufousing
         );
-        addPairMapping("Mealy", "M", GeneType.BINARY_INVERTED, 45); // [90,91] - Mealy
+        addPairMapping("Mealy", "+", GeneType.BINARY_INVERTED, 45); // [90,91] - Mealy
         addPairMapping("Blaze", SHEEP_BLAZE_GENES, GeneType.POLYMORPHIC, 51); // [102,103] - Blaze
         addPairMapping("Piebald", "pi", GeneType.BINARY, 4); // [8,9] - Piebald
         addPairMapping("Pigmented Head", SHEEP_PIGMENTED_HEAD_GENES, GeneType.POLYMORPHIC, 34); // [68,69] - Pigmented Head

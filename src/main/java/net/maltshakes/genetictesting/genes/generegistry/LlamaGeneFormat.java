@@ -11,7 +11,7 @@ public class LlamaGeneFormat extends GeneFormatting {
         "0",
         "D", // Dom Black
         "+", // Wildtype
-        "e" // Fawn Self
+        "E" // Fawn Self
     );
 
     private static final List<String> LLAMA_AGOUTI_GENES = List.of(

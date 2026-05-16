@@ -45,8 +45,9 @@ public class CowGeneFormat extends GeneFormatting {
     private static final List<String> COW_WHITEFACEEXT_GENES = List.of(
         "0",
         "pl", // + Spots
-        "0", // Normal
-        "mi" // - Spots
+        "+", // Normal
+        "mi", // - Spots
+        "bk" // + Backstripe
     );
 
     private static final List<String> COW_LEGACY_BELTED_GENES = List.of(
@@ -59,8 +60,8 @@ public class CowGeneFormat extends GeneFormatting {
 
     private static final List<String> COW_MEALY_GENES = List.of(
         "0",
-        "+", // No nose ring/wildtype
-        "m", // Mealy
+        "NM", // No nose ring
+        "+", // Mealy/wildtype
         "ex" // Extended Mealy
     );
 
@@ -124,7 +125,7 @@ public class CowGeneFormat extends GeneFormatting {
         addCategory("Genetic tests (color)");
         addPairMapping("Extension", COW_EXTENSION_GENES, GeneType.POLYMORPHIC, 0); // [0,1] - Extension
         addPairMapping("Agouti", COW_AGOUTI_GENES, GeneType.POLYMORPHIC, 2); // [4,5] - Agouti
-        addPairMapping("Dom. Red", "e", GeneType.BINARY_INVERTED, 3); // [6,7] - Dominant Red
+        addPairMapping("Dom. Red", "DR", GeneType.BINARY_INVERTED, 3); // [6,7] - Dominant Red
         addPairMapping("Dilute", COW_DILUTE_GENES, GeneType.POLYMORPHIC, 1); // [2,3] - Simmental and Charolois Dilutes
         addPairMapping("Dun", "D", GeneType.BINARY, 64); // [128,129] - Dun Dilute, aka chinchilla
         addPairMapping("Chocolate", "c", GeneType.BINARY, 5); // [10,11] - Chocolate Dilute, aka... another dun

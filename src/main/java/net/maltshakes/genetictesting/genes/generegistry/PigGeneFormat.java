@@ -42,6 +42,7 @@ public class PigGeneFormat extends GeneFormatting {
         "Rn", // Roan
         "I", // Dom White
         "II", // Dom White 2
+        "III", // Dom White 3
         "Be2", // Large Belt
         "N2", // Tuxedo
         "P", // Patch
