@@ -8,9 +8,9 @@ import net.maltshakes.genetictesting.genes.format.GeneFormatting;
 // spotless:off
 public class BettaGeneFormat extends GeneFormatting {
 
-    private static final List<String> BETTA_NONRED_GENES = List.of(
+    private static final List<String> BETTA_RED_GENES = List.of(
         "0",
-        "Nr", // Wildtype
+        "+", // Wildtype/Red
         "nr2", // Orange
         "nr1" // Yellow
     );
@@ -34,6 +34,24 @@ public class BettaGeneFormat extends GeneFormatting {
         "Super High", // +4
         "Near Max",// +5
         "Max" // +6
+    );
+
+    private static final List<String> BETTA_MARBLE_QUALITY_SCALE = List.of(
+        "Min", // value: 4
+        "Near Min", // 5
+        "Ultra Low", // 6
+        "Super Low", // 7
+        "Very Low", // 8
+        "Low", // 9
+        "Med-Low", // 10
+        "Medium", "Medium", "Medium", // 11 - 13
+        "Med-High", // 14
+        "High", // 15
+        "Very High", // 16
+        "Super High", // 17
+        "Ultra High", // 18
+        "Near Max", // 19 
+        "Max" // 20
     );
 
     private static final List<String> BETTA_RUFOUSING_SCALE = List.of(
@@ -108,67 +126,24 @@ public class BettaGeneFormat extends GeneFormatting {
         "Min"
     );
 
-    private static final List<String> BETTA_MARBLE_QUALITY_SCALE = List.of(
-        "Min", // value: 4
-        "Near Min", // 5
-        "Ultra Low", // 6
-        "Super Low", // 7
-        "Very Low", // 8
-        "Low", // 9
-        "Med-Low", // 10
-        "Medium", "Medium", "Medium", // 11 - 13
-        "Med-High", // 14
-        "High", // 15
-        "Very High", // 16
-        "Super High", // 17
-        "Ultra High", // 18
-        "Near Max", // 19 
-        "Max" // 20
-    );
-
     public BettaGeneFormat() {
         // Add dragonscale and dragonscale modifier
         setBookColour(0x4B52B0); // Blue
         addCategory("Genetic tests (color)");
         // Blue layer
         addPairMapping("Iridescence", "bl", GeneType.BINARY, 0); // [0,1] - Steel bl / Turquoise + or Bl
+        addPolyRangeMapping("Body Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 24, 27); // [20-23] Body Iri Level
+        addPolyRangeMapping("Fin Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 28, 31); // [20-23] Fin Iri Level
         addPolyScaleMapping("Iri Hue", BETTA_IRI_HUE_SCALE,
             IntStream.rangeClosed(214, 223).toArray(), // [214,223] greener (lighter)
             IntStream.rangeClosed(224, 233).toArray()  // [224,233] bluer (darker)
         );
-        addPolyRangeMapping("Body Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 24, 27); // [20-23] Body Iri Level
-        addPolyRangeMapping("Fin Iri Area", BETTA_LOW_HIGH_LEVEL_SCALE, 28, 31); // [20-23] Fin Iri Level
         addCustomBettaPolyScaleMapping("Iri intensity", BETTA_IRI_INTENSITY_SCALE,
             new int[]{32, 33},
             new int[]{34, 35}
         );
-        // Black layer
-        addPairMapping("Melano Black", "m", GeneType.BINARY, 3); // [6,7] - Melano Black (homo females are infertile)
-        addPairMapping("Laced Black", "fb", GeneType.BINARY, 4); // [8,9] - Fertile/Laced Black
-        addPairMapping("Cambodian", "c", GeneType.BINARY, 5); // [10,11] - Cambodian
-        addPairMapping("Extended Red", "Er", GeneType.BINARY, 6); // [12,13] - Extended Red
-        addPairMapping("Blonde", "b", GeneType.BINARY, 7); // [14,15] - Blonde
-        addPairMapping("Metallic", "nm", GeneType.BINARY_INVERTED, 24); // [48,49] - Metallic + / Non-metallic nm
-        addPairMapping("Red Mask", "R", GeneType.BINARY, 8); // [16,17] - Red Mask
-        addPairMapping("Bloodred", "BR", GeneType.BINARY, 76); // [152,153] - Bloodred
-        addPairMapping("Ext. Bloodred", "BR", GeneType.BINARY, 77); // [154,155] - Extended Bloodred
-        addPairMapping("Bloodred Mask", "BR", GeneType.BINARY, 78); // [156,157] - Bloodred Mask
-        addPairMapping("Opaque", "Op", GeneType.BINARY, 20); // [40,41] - Opaque
-        addPairMapping("Non Red", BETTA_NONRED_GENES, GeneType.POLYMORPHIC, 21); // [42,43] - Non Red
-        addPairMapping("Iri Spread", "Si", GeneType.BINARY, 1); // [2,3] - Spread Iridescence
-        addPairMapping("Masked Iri", "M", GeneType.BINARY, 2); // [4,5] - Masked Iridescence
-        addPolyRangeMapping("Masked Iri Area", BETTA_MASK_IRI_SCALE, 50, 55); // [50-55] Masked Iri Area
-        addPairMapping("Iri Rims", "R", GeneType.BINARY, 33); // [66,67] - Iri rims
-        addPolyRangeMapping("Iri Rim Level", BETTA_LOW_HIGH_LEVEL_SCALE, 68, 71); // [50-55] Iri Rims Level
-        addPairMapping("Butterfly", "B", GeneType.BINARY, 9); // [18,19] - Butterfly
-        addPolyRangeMapping("Butterfly Level", BETTA_LOW_HIGH_LEVEL_SCALE, 20, 23); // [20-23] Butterfly Level
-        addPairMapping("Marble", BETTA_MARBLE_GENES, GeneType.POLYMORPHIC, 40); // [80,81] - Marble/Vanda
-        // Red Marble Layer
-        addPolyScaleMapping("Red Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
-            IntStream.rangeClosed(86, 91).toArray()  // [86,91] +red marble
-        );
-        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale
+        // Red layer
+        addPairMapping("Red", BETTA_RED_GENES, GeneType.POLYMORPHIC, 21); // [42,43] - Red/Non Red
         addPolyScaleMapping("Red Body Area", BETTA_HIGH_LOW_LEVEL_SCALE,
             IntStream.rangeClosed(44, 45).toArray(), // [44,45] +body red area
             IntStream.rangeClosed(46, 47).toArray()  // [46,47] -body red area
@@ -178,18 +153,9 @@ public class BettaGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(174, 183).toArray(), // [174,183] -rufousing
             IntStream.rangeClosed(184, 193).toArray()  // [184,193] +rufousing
         );
-        // Black Marble Layer
-        addPolyScaleMapping("Black Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(96, 99).toArray(), // [96,99] -black marble
-            IntStream.rangeClosed(100, 105).toArray()  // [100,105] +black marble
-        );
-        addPolyRangeMapping("Black Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 106, 109, 5); // [106-109] Black marble quality scale
-        // Bloodred Marble Layer
-        addPolyScaleMapping("Bloodred Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(110, 113).toArray(), // [110,113] -bloodred marble
-            IntStream.rangeClosed(114, 119).toArray()  // [114,119] +bloodred marble
-        );
-        addPolyRangeMapping("Bloodred Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 120, 123, 5); // [120-123] Bloodred marble quality scale
+        addPairMapping("Ext. Red", "Er", GeneType.BINARY, 6); // [12,13] - Extended Red
+        addPairMapping("Red Mask", "R", GeneType.BINARY, 8); // [16,17] - Red Mask
+        addPairMapping("Bloodred", "BR", GeneType.BINARY, 76); // [152,153] - Bloodred
         addPolyScaleMapping("Body Bloodred Area", BETTA_HIGH_LOW_LEVEL_SCALE, 
             IntStream.rangeClosed(162, 163).toArray(), // [110,113] +body bloodred
             IntStream.rangeClosed(164, 165).toArray()  // [114,119] -body bloodred
@@ -199,12 +165,49 @@ public class BettaGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(194, 203).toArray(), // [194,203] -bloodred rufousing
             IntStream.rangeClosed(204, 213).toArray()  // [204,213] +bloodred rufousing
         );
+        addPairMapping("Ext. Bloodred", "BR", GeneType.BINARY, 77); // [154,155] - Extended Bloodred
+        addPairMapping("Bloodred Mask", "BR", GeneType.BINARY, 78); // [156,157] - Bloodred Mask
+        // Black/brown layer
+        addPairMapping("Melano Black", "m", GeneType.BINARY, 3); // [6,7] - Melano Black (homo females are infertile)
+        addPairMapping("Laced Black", "fb", GeneType.BINARY, 4); // [8,9] - Fertile/Laced Black
+        addPairMapping("Cambodian", "c", GeneType.BINARY, 5); // [10,11] - Cambodian
+        addPairMapping("Blonde", "b", GeneType.BINARY, 7); // [14,15] - Blonde
+        addPairMapping("Metallic", "nm", GeneType.BINARY_INVERTED, 24); // [48,49] - Metallic + / Non-metallic nm
+        addPairMapping("Opaque", "Op", GeneType.BINARY, 20); // [40,41] - Opaque
+        addPairMapping("Dragonscale", "Dr", GeneType.BINARY, 86);// [172,173] - Dragonscale
+        addPairMapping("Dragonscale Inhib.", "Di", GeneType.BINARY, 117); // [234,235] - Dragonscale modifier/inhibitor
+        addPairMapping("Iri Spread", "Si", GeneType.BINARY, 1); // [2,3] - Spread Iridescence
+        addPairMapping("Masked Iri", "M", GeneType.BINARY, 2); // [4,5] - Masked Iridescence
+        addPolyRangeMapping("Masked Iri Area", BETTA_MASK_IRI_SCALE, 50, 55); // [50-55] Masked Iri Area
+        addPairMapping("Iri Rims", "R", GeneType.BINARY, 33); // [66,67] - Iri rims
+        addPolyRangeMapping("Iri Rim Level", BETTA_LOW_HIGH_LEVEL_SCALE, 68, 71); // [50-55] Iri Rims Level
+        addPairMapping("Butterfly", "B", GeneType.BINARY, 9); // [18,19] - Butterfly
+        addPolyRangeMapping("Butterfly Level", BETTA_LOW_HIGH_LEVEL_SCALE, 20, 23); // [20-23] Butterfly Level
+        addPairMapping("Marble", BETTA_MARBLE_GENES, GeneType.POLYMORPHIC, 40); // [80,81] - Marble/Vanda
         // Blue Marble Layer
         addPolyScaleMapping("Iri Marble Size", BETTA_MARBLE_SIZE_SCALE, 
             IntStream.rangeClosed(124, 127).toArray(), // [124,127] -iri marble
             IntStream.rangeClosed(128, 133).toArray()  // [128,133] +iri marble
         );
         addPolyRangeMapping("Iri Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 134, 137, 5); // [134-137] Iri marble quality scale
+        // Red Marble Layer
+        addPolyScaleMapping("Red Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
+            IntStream.rangeClosed(86, 91).toArray()  // [86,91] +red marble
+        );
+        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale
+        // Bloodred Marble Layer
+        addPolyScaleMapping("Bloodred Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(110, 113).toArray(), // [110,113] -bloodred marble
+            IntStream.rangeClosed(114, 119).toArray()  // [114,119] +bloodred marble
+        );
+        addPolyRangeMapping("Bloodred Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 120, 123, 5); // [120-123] Bloodred marble quality scale
+        // Black Marble Layer
+        addPolyScaleMapping("Black Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(96, 99).toArray(), // [96,99] -black marble
+            IntStream.rangeClosed(100, 105).toArray()  // [100,105] +black marble
+        );
+        addPolyRangeMapping("Black Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 106, 109, 5); // [106-109] Black marble quality scale
         // Opaque Marble Layer
         addPolyScaleMapping("Opaque Marble Size", BETTA_MARBLE_SIZE_SCALE, 
             IntStream.rangeClosed(138, 141).toArray(), // [138,141] -opaque marble

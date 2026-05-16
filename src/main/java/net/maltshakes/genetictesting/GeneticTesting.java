@@ -32,8 +32,6 @@ import org.slf4j.Logger;
 // TODO
 // Add custom scale for golden in turtles
 // Reference genetic bettas github so bettas can also be in test world
-// Put genes in logical order (bettas)
-// Github wiki documentation
 // Figure out what to do with tape measure item
 // Add recessive/phenotype filter with config options
 // Backport to 1.18.2

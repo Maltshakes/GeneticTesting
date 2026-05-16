@@ -66,7 +66,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         addSexLinkedPairMapping("Gold", CHICKEN_GOLD_GENES, GeneType.POLYMORPHIC, 0); // [0, 1] // Gold
         addSexLinkedPairMapping("Chocolate", "c", GeneType.BINARY, 1); // [2, 3] // Gold
         addSexLinkedPairMapping("Barred", "b", GeneType.BINARY, 3); // [6, 7] // Barred
-        addSexLinkedPairMapping("Fibro Suppressor", "F", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
+        addSexLinkedPairMapping("Fibro Suppressor", "Id", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
         // Males work same as AGenes. Females carry have two alleles for each locus, but only the first allele of each pair is used for females, second one is ignored.
         // Fuck Omni Genders
         addLineBreak();
@@ -75,13 +75,13 @@ public class ChickenGeneFormat extends GeneFormatting {
         addPairMapping("Pattern", "Pg", GeneType.BINARY_INVERTED, 13); // [26,27] - Pattern
         addPairMapping("Colombian", "Co", GeneType.BINARY_INVERTED, 14); // [28,29] - Colombian
         addPairMapping("Melanized", "Ml", GeneType.BINARY_INVERTED, 15); // [30,31] - Melanized
-        addPairMapping("Darkbrown", "db", GeneType.BINARY_INVERTED, 49); // [98,99] - Darkbrown
+        addPairMapping("Darkbrown", "Db", GeneType.BINARY_INVERTED, 49); // [98,99] - Darkbrown
         addPairMapping("Charcoal", "cha", GeneType.BINARY, 50); // [100,101] - Charcoal
         addPairMapping("Mahogany", "Mh", GeneType.BINARY_INVERTED, 17); // [34,35] - Mahogany
         addPairMapping("Dilute", CHICKEN_DILUTE_GENES, GeneType.POLYMORPHIC, 16); // [32,33] - Dilute
         addPairMapping("Lavender", "lav", GeneType.BINARY, 18); // [36,37] - Lavender
         addPairMapping("Splash", "Bl", GeneType.BINARY, 20); // [40,41] - Splash/Blue
-        addPairMapping("Cream", "ig", GeneType.BINARY, 142); // [284,285] - Cream/Gold Inhibitor of Gold
+        addPairMapping("Cream", "ig", GeneType.BINARY, 142); // [284,285] - Cream/Inhibitor of Gold
         addPairMapping("Dom. white", CHICKEN_DOMWHITE_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Dominant white
         addPairMapping("Rec. white", CHICKEN_RECWHITE_GENES, GeneType.POLYMORPHIC, 10); // [20,21] - Recessive white
         addPairMapping("Autosomal Red", "Ar", GeneType.BINARY_INVERTED, 85); // [170,171] - Autosomal Red
