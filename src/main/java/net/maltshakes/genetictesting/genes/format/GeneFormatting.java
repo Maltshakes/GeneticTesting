@@ -7,6 +7,7 @@ import java.util.function.BiPredicate;
 import mokiyoki.enhancedanimals.entity.util.Colouration;
 import net.maltshakes.genetictesting.genes.datamodel.BookEntry;
 import net.maltshakes.genetictesting.genes.datamodel.CustomBettaPolyScaleDefinition;
+import net.maltshakes.genetictesting.genes.datamodel.CustomTurtlePolyGeneDefinition;
 import net.maltshakes.genetictesting.genes.datamodel.GeneDefinition.GeneType;
 import net.maltshakes.genetictesting.genes.datamodel.PolyGeneDefinition;
 import net.maltshakes.genetictesting.genes.datamodel.PolyScaleDefinition;
@@ -228,7 +229,7 @@ public abstract class GeneFormatting {
     }
 
     /**
-     * Registers a new custom genetic scale definition with a specific label and set of mappings.
+     * Registers a custom genetic scale definition with a specific label and set of mappings.
      *
      * @param label The display name or identifier for this scale.
      * @param mappings A list of 7 strings representing the possible outcomes of the scale.
@@ -245,6 +246,31 @@ public abstract class GeneFormatting {
         }
         displayEntries.add(
                 new CustomBettaPolyScaleDefinition(label, mappings, firstPair, secondPair));
+    }
+
+    /**
+     * Registers a non-linear turtle gene mapping that spans across two distinct gene ranges,
+     * skipping any gap indices in between.
+     *
+     * @param label The display name for this turtle gene entry.
+     * @param mappings A list of descriptive strings to map the result to.
+     * @param firstStart The starting index of the first continuous gene segment.
+     * @param firstEnd The ending index of the first continuous gene segment.
+     * @param secondStart The starting index of the second continuous gene segment.
+     * @param secondEnd The ending index of the second continuous gene segment.
+     * @param maxVal The maximum possible value an individual allele can contain.
+     */
+    public void addCustomTurtlePolyScaleMapping(
+            String label,
+            List<String> mappings,
+            int firstStart,
+            int firstEnd,
+            int secondStart,
+            int secondEnd,
+            int maxVal) {
+        displayEntries.add(
+                new CustomTurtlePolyGeneDefinition(
+                        label, mappings, firstStart, firstEnd, secondStart, secondEnd, maxVal));
     }
 
     /**
@@ -453,6 +479,66 @@ public abstract class GeneFormatting {
     }
 
     /**
+     * Processes a {@link CustomTurtlePolyGeneDefinition} by summing the values of genes within two
+     * distinct, non-linear ranges and mapping that sum to a descriptive category string. Calculates
+     * the relative position of the sum between the minimum possible sum (all 1s across both ranges)
+     * and the maximum possible sum (all max values across both ranges). This percentage is then
+     * used to select an index from the provided mapping list.
+     *
+     * @param scale The definition containing the two non-linear gene ranges.
+     * @param agenes The raw array of gene values (expected values are 1 or 2 for this function).
+     * @return A {@link Component} containing the mapped category string.
+     */
+    private Component processCustomTurtlePolyGene(
+            CustomTurtlePolyGeneDefinition scale, int[] agenes) {
+        int sum = 0;
+        int firstStart = scale.getFirstRangeStart();
+        int firstEnd = scale.getFirstRangeEnd();
+        int secondStart = scale.getSecondRangeStart();
+        int secondEnd = scale.getSecondRangeEnd();
+        int maxVal = scale.getMaxAlleleValue();
+        // First range
+        for (int i = firstStart; i <= firstEnd; i++) {
+            if (i < agenes.length) {
+                sum += agenes[i];
+            }
+        }
+        // Second range
+        for (int i = secondStart; i <= secondEnd; i++) {
+            if (i < agenes.length) {
+                sum += agenes[i];
+            }
+        }
+        int firstRangeLength = (firstEnd - firstStart) + 1;
+        int secondRangeLength = (secondEnd - secondStart) + 1;
+        int totalRangeLength = firstRangeLength + secondRangeLength;
+
+        int minPossible = totalRangeLength; // All genes are 1
+        int maxPossible = totalRangeLength * maxVal; // All genes are maxVal
+        int listIndex;
+
+        List<String> mappings = scale.mappings;
+
+        if (maxPossible <= minPossible) {
+            // Prevents dividing by zero
+            listIndex = 0;
+        } else if (sum <= minPossible) {
+            // Force absolute minimum
+            listIndex = 0;
+        } else if (sum >= maxPossible) {
+            // Force absolute maximum
+            listIndex = mappings.size() - 1;
+        } else {
+            // Precise double progress mapping matching processPolyGene
+            double progress = (double) (sum - minPossible) / (maxPossible - minPossible);
+            listIndex = (int) Math.round(progress * (mappings.size() - 1));
+            listIndex = Math.max(0, Math.min(listIndex, mappings.size() - 1));
+        }
+
+        return Component.literal(mappings.get(listIndex));
+    }
+
+    /**
      * Converts an individual gene value into a visual {@link Component} based on the gene's type.
      *
      * <p>BINARY: Maps 1 to "+" (wildtype), 2 to a specific label. BINARY_INVERTED: Maps 2 to "+"
@@ -575,6 +661,11 @@ public abstract class GeneFormatting {
             }
             if (entry instanceof CustomBettaPolyScaleDefinition polyScale) {
                 Component polyVal = processCustomBettaPolyScale(polyScale, currentArray);
+                result.add(new BookEntry(polyScale.label, polyVal, Component.literal("‽")));
+                continue;
+            }
+            if (entry instanceof CustomTurtlePolyGeneDefinition polyScale) {
+                Component polyVal = processCustomTurtlePolyGene(polyScale, currentArray);
                 result.add(new BookEntry(polyScale.label, polyVal, Component.literal("‽")));
                 continue;
             }

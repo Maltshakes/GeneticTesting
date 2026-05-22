@@ -52,9 +52,9 @@ public class CowGeneFormat extends GeneFormatting {
 
     private static final List<String> COW_LEGACY_BELTED_GENES = List.of(
         "0",
-        "LBe", //Legacy Belted
+        "LBt", //Legacy Belt
         "LBl", // Legacy Blaze
-        "LBr", // Legacy Brockling
+        "LBc", // Legacy Brockling
         "+" // Wildtype
     );
 
@@ -144,13 +144,14 @@ public class CowGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(226, 249).toArray() // [226-249] - darker pattern
         );
         addPairMapping("Roan", "Rn", GeneType.BINARY, 4); // [8,9] - Roan
-        addPairMapping("Speckled", "P", GeneType.BINARY_INVERTED, 7); // [14,15] - Speckled
-        addPairMapping("White Face", COW_WHITEFACE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - White Face
+        addPairMapping("Speckled", "Sp", GeneType.BINARY_INVERTED, 7); // [14,15] - Speckled
+        addPairMapping("Spots", COW_WHITEFACE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - White Face/Spots
         addPairMapping("Pinz. Extension", COW_WHITEFACEEXT_GENES, GeneType.POLYMORPHIC, 11); // [22,23] - Pinzguaer/White Face Extension
-        addPairMapping("Colorsided", "CS", GeneType.BINARY_INVERTED, 10); // [20,21] - Colorsided
-        addPairMapping("Belted", "Be", GeneType.BINARY, 125); // [250,251] - Belted
+        addPairMapping("Colorsided", "Cs", GeneType.BINARY_INVERTED, 10); // [20,21] - Colorsided
+        addPairMapping("Belt", "Bt", GeneType.BINARY, 125); // [250,251] - Belted
         addPairMapping("Blaze", "Bl", GeneType.BINARY, 126); // [252,253] - Blaze
-        addLegacyMapping("Legacy Belted", COW_LEGACY_BELTED_GENES, GeneType.POLYMORPHIC, 9, 4); // [18,19] - Legacy Belted
+        addPairMapping("Brockling", "Bc", GeneType.BINARY, 127); // [254,255] - Brockling
+        addLegacyMapping("Legacy", COW_LEGACY_BELTED_GENES, GeneType.POLYMORPHIC, 9, 4); // [18,19] - Legacy Belted
     }
 }
 // spotless:on

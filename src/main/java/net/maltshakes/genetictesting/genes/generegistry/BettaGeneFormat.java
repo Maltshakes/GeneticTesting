@@ -141,19 +141,9 @@ public class BettaGeneFormat extends GeneFormatting {
             new int[]{32, 33},
             new int[]{34, 35}
         );
-        // Red layer
-        addPairMapping("Red", BETTA_RED_GENES, GeneType.POLYMORPHIC, 21); // [42,43] - Red/Non Red
-        addPolyScaleMapping("Red Body Area", BETTA_HIGH_LOW_LEVEL_SCALE,
-            IntStream.rangeClosed(44, 45).toArray(), // [44,45] +body red area
-            IntStream.rangeClosed(46, 47).toArray()  // [46,47] -body red area
-        );
-        addPolyRangeMapping("Red Fin Area", BETTA_HIGH_LOW_LEVEL_SCALE, 36, 39); // [36-39] Fin Red Level
-        addPolyScaleMapping("Rufousing", BETTA_RUFOUSING_SCALE, 
-            IntStream.rangeClosed(174, 183).toArray(), // [174,183] -rufousing
-            IntStream.rangeClosed(184, 193).toArray()  // [184,193] +rufousing
-        );
-        addPairMapping("Ext. Red", "Er", GeneType.BINARY, 6); // [12,13] - Extended Red
-        addPairMapping("Red Mask", "R", GeneType.BINARY, 8); // [16,17] - Red Mask
+        addPairMapping("Metallic", "nm", GeneType.BINARY_INVERTED, 24); // [48,49] - Metallic + / Non-metallic nm
+        addPairMapping("Opaque", "Op", GeneType.BINARY, 20); // [40,41] - Opaque
+        // Bloodred layer
         addPairMapping("Bloodred", "BR", GeneType.BINARY, 76); // [152,153] - Bloodred
         addPolyScaleMapping("Body Bloodred Area", BETTA_HIGH_LOW_LEVEL_SCALE, 
             IntStream.rangeClosed(162, 163).toArray(), // [110,113] +body bloodred
@@ -171,8 +161,20 @@ public class BettaGeneFormat extends GeneFormatting {
         addPairMapping("Laced Black", "fb", GeneType.BINARY, 4); // [8,9] - Fertile/Laced Black
         addPairMapping("Cambodian", "c", GeneType.BINARY, 5); // [10,11] - Cambodian
         addPairMapping("Blonde", "b", GeneType.BINARY, 7); // [14,15] - Blonde
-        addPairMapping("Metallic", "nm", GeneType.BINARY_INVERTED, 24); // [48,49] - Metallic + / Non-metallic nm
-        addPairMapping("Opaque", "Op", GeneType.BINARY, 20); // [40,41] - Opaque
+        // Red layer
+        addPairMapping("Red", BETTA_RED_GENES, GeneType.POLYMORPHIC, 21); // [42,43] - Red/Non Red
+        addPolyScaleMapping("Red Body Area", BETTA_HIGH_LOW_LEVEL_SCALE,
+            IntStream.rangeClosed(44, 45).toArray(), // [44,45] +body red area
+            IntStream.rangeClosed(46, 47).toArray()  // [46,47] -body red area
+        );
+        addPolyRangeMapping("Red Fin Area", BETTA_HIGH_LOW_LEVEL_SCALE, 36, 39); // [36-39] Fin Red Level
+        addPolyScaleMapping("Rufousing", BETTA_RUFOUSING_SCALE, 
+            IntStream.rangeClosed(174, 183).toArray(), // [174,183] -rufousing
+            IntStream.rangeClosed(184, 193).toArray()  // [184,193] +rufousing
+        );
+        addPairMapping("Ext. Red", "Er", GeneType.BINARY, 6); // [12,13] - Extended Red
+        addPairMapping("Red Mask", "R", GeneType.BINARY, 8); // [16,17] - Red Mask
+        // Markings
         addPairMapping("Dragonscale", "Dr", GeneType.BINARY, 86);// [172,173] - Dragonscale
         addPairMapping("Dragonscale Inhib.", "Di", GeneType.BINARY, 117); // [234,235] - Dragonscale modifier/inhibitor
         addPairMapping("Iri Spread", "Si", GeneType.BINARY, 1); // [2,3] - Spread Iridescence
@@ -183,38 +185,36 @@ public class BettaGeneFormat extends GeneFormatting {
         addPairMapping("Butterfly", "B", GeneType.BINARY, 9); // [18,19] - Butterfly
         addPolyRangeMapping("Butterfly Level", BETTA_LOW_HIGH_LEVEL_SCALE, 20, 23); // [20-23] Butterfly Level
         addPairMapping("Marble", BETTA_MARBLE_GENES, GeneType.POLYMORPHIC, 40); // [80,81] - Marble/Vanda
-        // Blue Marble Layer
-        addPolyScaleMapping("Iri Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(124, 127).toArray(), // [124,127] -iri marble
-            IntStream.rangeClosed(128, 133).toArray()  // [128,133] +iri marble
-        );
-        addPolyRangeMapping("Iri Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 134, 137, 5); // [134-137] Iri marble quality scale
-        // Red Marble Layer
-        addPolyScaleMapping("Red Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
-            IntStream.rangeClosed(86, 91).toArray()  // [86,91] +red marble
-        );
-        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale
-        // Bloodred Marble Layer
-        addPolyScaleMapping("Bloodred Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(110, 113).toArray(), // [110,113] -bloodred marble
-            IntStream.rangeClosed(114, 119).toArray()  // [114,119] +bloodred marble
-        );
-        addPolyRangeMapping("Bloodred Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 120, 123, 5); // [120-123] Bloodred marble quality scale
-        // Black Marble Layer
-        addPolyScaleMapping("Black Marble Size", BETTA_MARBLE_SIZE_SCALE, 
-            IntStream.rangeClosed(96, 99).toArray(), // [96,99] -black marble
-            IntStream.rangeClosed(100, 105).toArray()  // [100,105] +black marble
-        );
-        addPolyRangeMapping("Black Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 106, 109, 5); // [106-109] Black marble quality scale
         // Opaque Marble Layer
         addPolyScaleMapping("Opaque Marble Size", BETTA_MARBLE_SIZE_SCALE, 
             IntStream.rangeClosed(138, 141).toArray(), // [138,141] -opaque marble
             IntStream.rangeClosed(142, 147).toArray()  // [142,147] +opaque marble
         );
         addPolyRangeMapping("Opaque Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 148, 151, 5); // [148-151] Opaque marble quality scale
-
-
+        // Blue Marble Layer
+        addPolyScaleMapping("Iri Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(124, 127).toArray(), // [124,127] -iri marble
+            IntStream.rangeClosed(128, 133).toArray()  // [128,133] +iri marble
+        );
+        addPolyRangeMapping("Iri Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 134, 137, 5); // [134-137] Iri marble quality scale
+        // Bloodred Marble Layer
+        addPolyScaleMapping("Bloodred Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(110, 113).toArray(), // [110,113] -bloodred marble
+            IntStream.rangeClosed(114, 119).toArray()  // [114,119] +bloodred marble
+        );
+        addPolyRangeMapping("Bloodred Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 120, 123, 5); // [120-123] Bloodred marble quality scale  
+        // Black Marble Layer
+        addPolyScaleMapping("Black Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(96, 99).toArray(), // [96,99] -black marble
+            IntStream.rangeClosed(100, 105).toArray()  // [100,105] +black marble
+        );
+        addPolyRangeMapping("Black Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 106, 109, 5); // [106-109] Black marble quality scale
+        // Red Marble Layer
+        addPolyScaleMapping("Red Marble Size", BETTA_MARBLE_SIZE_SCALE, 
+            IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
+            IntStream.rangeClosed(86, 91).toArray()  // [86,91] +red marble
+        );
+        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale     
     }
 }
 // spotless:on

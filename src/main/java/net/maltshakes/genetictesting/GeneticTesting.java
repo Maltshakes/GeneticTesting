@@ -30,11 +30,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // TODO
-// Add custom scale for golden in turtles
-// Add custom recessive scale for iri body area, iri fin area, iri intensity, and masked iri area in bettas
 // Reference genetic bettas github so bettas can also be in test world
 // Figure out what to do with tape measure item
-// Add recessive/phenotype filter with config options
+// Add recessive/phenotype filter with config options and recessive scales
 // Backport to 1.18.2
 
 // The value here should match an entry in the META-INF/mods.toml file

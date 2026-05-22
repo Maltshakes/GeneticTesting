@@ -12,8 +12,7 @@ import net.minecraft.network.chat.MutableComponent;
  *
  * <ul>
  *   <li>{@link Type#HEADER}: A section title used to group genes.
- *   <li>{@link Type#GENE_PAIR}: A labeled row displaying two genetic values (e.g., Allele 1 |
- *       Allele 2).
+ *   <li>{@link Type#GENE_PAIR}: A labeled row displaying two genetic values (Allele 1 | 2).
  *   <li>{@link Type#COMMENT}: A descriptive or conditional text entry.
  * </ul>
  */
