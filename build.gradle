@@ -160,10 +160,15 @@ tasks.named('jar', Jar).configure {
     }
     finalizedBy 'reobfJar'
 }
+def envChangelog = providers.environmentVariable("RELEASE_CHANGELOG").getOrElse("")
+
+def releaseChangelog = !envChangelog.trim().isEmpty() ? envChangelog : 
+    providers.gradleProperty("changelog")
+    .getOrElse("Release for ${project.version}")
 
 publishMods {
     file = jar.archiveFile
-    changelog = "Release for ${project.version}"
+    changelog = releaseChangelog
     type = STABLE
     modLoaders.add("forge")
 
@@ -172,7 +177,9 @@ publishMods {
         projectSlug = "genetic-testing"
         accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
         minecraftVersions.add("${project.minecraft_version}")
+        optional("genetic-bettas")
     }
+
     modrinth {
         projectId = providers.environmentVariable("MODRINTH_ID")
         accessToken = providers.environmentVariable("MODRINTH_TOKEN")
