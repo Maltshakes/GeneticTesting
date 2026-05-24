@@ -150,7 +150,7 @@ public class CowGeneFormat extends GeneFormatting {
         addPairMapping("Colorsided", "Cs", GeneType.BINARY_INVERTED, 10); // [20,21] - Colorsided
         addPairMapping("Belt", "Bt", GeneType.BINARY, 125); // [250,251] - Belted
         addPairMapping("Blaze", "Bl", GeneType.BINARY, 126); // [252,253] - Blaze
-        addPairMapping("Brockling", "Bc", GeneType.BINARY, 127); // [254,255] - Brockling
+        // addPairMapping("Brockling", "Bc", GeneType.BINARY, 127); // [254,255] - Brockling
         addLegacyMapping("Legacy", COW_LEGACY_BELTED_GENES, GeneType.POLYMORPHIC, 9, 4); // [18,19] - Legacy Belted
     }
 }

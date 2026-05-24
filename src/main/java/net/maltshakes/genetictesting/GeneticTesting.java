@@ -44,15 +44,33 @@ public class GeneticTesting {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public GeneticTesting(FMLJavaModLoadingContext context) {
-        IEventBus modEventBus = context.getModEventBus();
+        // Pass the context bus down to the shared initialization method
+        this(context.getModEventBus());
+    }
+
+    @SuppressWarnings("removal")
+    public GeneticTesting() {
+        // Fall back to the deprecated static get() method, pass it to shared initialization
+        this(FMLJavaModLoadingContext.get().getModEventBus());
+    }
+
+    private GeneticTesting(IEventBus modEventBus) {
         GeneticTestingItems.register(modEventBus);
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-        // Register for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
+
+    // public GeneticTesting(FMLJavaModLoadingContext context) {
+    //     IEventBus modEventBus = context.getModEventBus();
+    //     GeneticTestingItems.register(modEventBus);
+    //     // Register the commonSetup method for modloading
+    //     modEventBus.addListener(this::commonSetup);
+    //     // Register for server and other game events we are interested in
+    //     MinecraftForge.EVENT_BUS.register(this);
+    //     // Register the item to a creative tab
+    //     modEventBus.addListener(this::addCreative);
+    // }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("STARTING SETUP");
