@@ -30,7 +30,7 @@ jobs:
 
       - name: Fetch PR Description for Changelog
         id: pr_data
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9.0.0
         with:
           script: |
             const prs = await github.rest.repos.listPullRequestsAssociatedWithCommit({
@@ -47,7 +47,7 @@ jobs:
 
       - name: Build and Publish
         run: |
-          PROJECT_VERSION=$(grep "mod_version" gradle.properties | cut -d'=' -f2 | xargs)
+          PROJECT_VERSION=$(grep "^mod_version=" gradle.properties | cut -d'=' -f2 | xargs)
           
           if git rev-parse "v$PROJECT_VERSION" >/dev/null 2>&1; then
             echo "Version v$PROJECT_VERSION already published. Skipping deployment."
