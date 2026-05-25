@@ -3,6 +3,7 @@ package net.maltshakes.genetictesting.client.gui;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.maltshakes.genetictesting.client.GeneBookDisplay;
+import net.maltshakes.genetictesting.utils.CompatHelpers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
@@ -26,7 +27,8 @@ public class ResultsBookScreen extends Screen {
 
     // The location of the GUI texture for the gene book background
     public static final ResourceLocation BACKGROUND_LOCATION =
-            getCompatibleResourceLocation("genetictesting", "textures/gui/gene_book.png");
+            CompatHelpers.getCompatibleResourceLocation(
+                    "genetictesting", "textures/gui/gene_book.png");
     // The formatted data provider containing the pages and columns to render
     private final GeneBookDisplay display;
     // The index of the currently displayed page (starts at 0).
@@ -43,31 +45,6 @@ public class ResultsBookScreen extends Screen {
     private PageButton prevButton;
     private int feedbackTimer = 0;
     private Component feedbackMessage = Component.empty();
-
-    /**
-     * Creates a {@link ResourceLocation} using a backwards-compatible fallback mechanism.
-     *
-     * <p>Attempts to dynamically invoke the modern {@code fromNamespaceAndPath} method via
-     * reflection to support newer environments. Safely falls back to the traditional constructor if
-     * the modern method is missing in older runtime environments.
-     *
-     * @param namespace The namespace string (mod ID).
-     * @param path The path string resource (texture or JSON path).
-     * @return A valid {@link ResourceLocation} instance matching the given namespace and path.
-     */
-    @SuppressWarnings("removal")
-    private static ResourceLocation getCompatibleResourceLocation(String namespace, String path) {
-        try {
-            // Try latest version of forge method
-            java.lang.reflect.Method method =
-                    ResourceLocation.class.getMethod(
-                            "fromNamespaceAndPath", String.class, String.class);
-            return (ResourceLocation) method.invoke(null, namespace, path);
-        } catch (Exception e) {
-            // Fallback to deprecated version
-            return new ResourceLocation(namespace, path);
-        }
-    }
 
     /**
      * Constructs a new results screen.

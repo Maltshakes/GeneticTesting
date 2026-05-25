@@ -7,6 +7,7 @@ import net.maltshakes.genetictesting.genes.datamodel.BookEntry;
 import net.maltshakes.genetictesting.genes.format.GeneFormatting;
 import net.maltshakes.genetictesting.genes.handler.AnimalResolver;
 import net.maltshakes.genetictesting.item.*;
+import net.maltshakes.genetictesting.server.GeneticTestingPacketHandler;
 import net.maltshakes.genetictesting.utils.GeneHelpers;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionResult;
@@ -74,6 +75,7 @@ public class GeneticTesting {
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("STARTING SETUP");
+        GeneticTestingPacketHandler.register();
     }
 
     // Add items to the creative tab
