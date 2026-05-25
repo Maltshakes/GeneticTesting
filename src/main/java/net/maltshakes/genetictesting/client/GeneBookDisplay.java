@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
  * Handles the layout and data transformation for displaying genetic information within a GeneBook.
  * This class manages the distribution of {@link BookEntry} data across a dual-column page system.
  */
+@net.minecraftforge.api.distmarker.OnlyIn(net.minecraftforge.api.distmarker.Dist.CLIENT)
 public class GeneBookDisplay {
 
     private final List<Page> pages = new ArrayList<>();
@@ -104,13 +105,29 @@ public class GeneBookDisplay {
             for (FormattedCharSequence linePart : wrappedLines) {
                 // Reconstruct component from char sequence for the column list
                 MutableComponent comp = Component.empty();
+                final StringBuilder currentText = new StringBuilder();
+                final List<Style> activeStyle = new java.util.ArrayList<>();
+
                 linePart.accept(
                         (index, style, codePoint) -> {
-                            comp.append(
-                                    Component.literal(String.valueOf((char) codePoint))
-                                            .withStyle(style));
+                            if (activeStyle.isEmpty()) {
+                                activeStyle.add(style);
+                            } else if (!activeStyle.get(0).equals(style)) {
+                                comp.append(
+                                        Component.literal(currentText.toString())
+                                                .withStyle(activeStyle.get(0)));
+                                currentText.setLength(0); // Clear builder
+                                activeStyle.set(0, style); // Update style
+                            }
+                            currentText.append((char) codePoint);
                             return true;
                         });
+                // Clear any remaining characters
+                if (currentText.length() > 0 && !activeStyle.isEmpty()) {
+                    comp.append(
+                            Component.literal(currentText.toString())
+                                    .withStyle(activeStyle.get(0)));
+                }
                 targetCol.add(comp);
                 currentLineCount++;
             }
