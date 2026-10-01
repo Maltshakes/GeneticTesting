@@ -76,6 +76,29 @@ public class AxolotlGeneFormat extends GeneFormatting {
         "Mag" // Magenta
     );
 
+    private static final List<String> AXOLOTL_SIZE_GENES = List.of(
+        "0",
+        "1", // 
+        "2", // 
+        "3", // 
+        "4", // 
+        "5" //
+    );
+
+    private static final List<String> AXOLOTL_MINIATURE_GENES = List.of(
+        "0",
+        "1", // 
+        "2", // 
+        "3", // 
+        "4", // 
+        "5", // 
+        "6", // 
+        "7", // 
+        "8", // 
+        "9", // 
+        "10" // 
+    );
+
     // Maps the genes of an axolotl
     public AxolotlGeneFormat() {
         setBookColour(0x309E9D); // Cyan
@@ -100,6 +123,19 @@ public class AxolotlGeneFormat extends GeneFormatting {
         addPairMapping("Eye Color", "", GeneType.COLOUR, 11); // [22,23] - RGB value of eyes
         addPairMapping("Gill EP", AXOLOTL_EPGFP_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Gill EP/GFP
         addPairMapping("Gill Color", AXOLOTL_GILL_COLOR_GENES, GeneType.POLYMORPHIC, 20); // [40,41] - Gill colors
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addPairMapping("Greater Gills 1", "g1", GeneType.BINARY, 17); // [34,35] - Greater gills 1
+        addPairMapping("Greater Gills 2", "g2", GeneType.BINARY, 18); // [36,37] - Greater gills 2
+        addPairMapping("Size Adder", AXOLOTL_SIZE_GENES, GeneType.POLYMORPHIC, 14); // [28,29] - Increases size (dominant)
+        addPairMapping("Miniature", AXOLOTL_MINIATURE_GENES, GeneType.POLYMORPHIC, 15); // [30,31] - Decreases size (recessive) 
+        addPairMapping("Long Body", "lb", GeneType.BINARY, 16); // [32,33] - Long body
+        addPairMapping("Long Tail", "lt", GeneType.BINARY, 13); // [26,27] - Long tail
+
+        addPageBreak();
+        addCategory("Genetic tests (production)");
+        addComment("Axolotls do not have any production genes.");
     }
 }
 // spotless:on

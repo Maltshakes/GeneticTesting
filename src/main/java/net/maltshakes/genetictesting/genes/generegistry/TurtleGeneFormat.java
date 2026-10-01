@@ -1,6 +1,6 @@
 package net.maltshakes.genetictesting.genes.generegistry;
 
-// import java.util.List;
+import java.util.List;
 import net.maltshakes.genetictesting.genes.datamodel.GeneDefinition.GeneType;
 import net.maltshakes.genetictesting.genes.format.GeneFormatting;
 
@@ -58,6 +58,32 @@ public class TurtleGeneFormat extends GeneFormatting{
     //     "Max" // 32
     // );
 
+    private static final List<String> TURTLE_MINI_SCALE = List.of(
+        "Min",
+        "Near Min",
+        "Very Low",
+        "Low",
+        "Medium",
+        "High",
+        "Very High",
+        "Near Max",
+        "Max"
+    );
+
+    private static final List<String> TURTLE_SIZE_SCALE = List.of(
+        "Min",
+        "Near Min",
+        "Super Low",
+        "Very Low",
+        "Low",
+        "Medium",
+        "High",
+        "Very High",
+        "Super High",
+        "Near Max",
+        "Max"
+    );
+
     // Maps the genes of a turtle
     public TurtleGeneFormat() {
         setBookColour(0x61951E); // Green
@@ -65,6 +91,7 @@ public class TurtleGeneFormat extends GeneFormatting{
         addPairMapping("Albino", "a", GeneType.BINARY, 0); // [0,1] - Albino
         addPairMapping("Axanthic", "ax", GeneType.BINARY, 1); // [2,3] - Axanthic
         addPairMapping("Melanized", "m", GeneType.BINARY, 2); // [4,5] - Melanized
+        // Temporarily commented out until turtle update is released
         // addPairMapping("Melanin Pigment", "M", GeneType.BINARY, 34); // [68,69] - Melanin pigment 
         // addPairMapping("Green Pigment", "O", GeneType.BINARY, 33); // [66,67] - Green pigment 
         // addPairMapping("Lavender", "lav", GeneType.BINARY, 35); // [70,71] - Lavender dilute
@@ -75,6 +102,15 @@ public class TurtleGeneFormat extends GeneFormatting{
         // addPairMapping("Solid Modifier", TURTLE_SOLID_MOD_GENES, GeneType.POLYMORPHIC, 16); // [32,33] - Solid Modifier (wildtype, scale, clown)
         addPairMapping("Piebald", "pi", GeneType.BINARY, 3); // [6,7] - Piebald
         addPairMapping("Speckled", "sp", GeneType.BINARY, 4); // [8,9] - Speckle to spot piebald modifier
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addPolyRangeMapping("Size Adder", TURTLE_SIZE_SCALE, 20, 29); // [20-29] - Larger size
+        addPolyRangeMapping("Miniature", TURTLE_MINI_SCALE, 12, 19); // [12-19] - Miniature size
+        
+        addLineBreak();
+        addCategory("Genetic tests (production)");
+        addComment("Turtles do not have any production genes.");
     }
 }
 // spotless:on

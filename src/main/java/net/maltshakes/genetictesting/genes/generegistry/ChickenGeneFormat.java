@@ -9,8 +9,8 @@ public class ChickenGeneFormat extends GeneFormatting {
 
     private static final List<String> CHICKEN_GOLD_GENES = List.of(
         "0",
-        "g", // gold
-        "S" // silver
+        "g", // Gold
+        "S" // Silver
     );
 
     private static final List<String> CHICKEN_DOMWHITE_GENES = List.of(
@@ -91,6 +91,69 @@ public class ChickenGeneFormat extends GeneFormatting {
         addPairMapping("Yellow Shanks", CHICKEN_YELSHANK_GENES, GeneType.POLYMORPHIC, 22); // [44,45] - Yellow Shanks
         addPairMapping("Rec. Black Shanks", "bl", GeneType.BINARY, 83); // [166,167] - Recessive Black Shanks
         addPairMapping("Pearl Eye", "prl", GeneType.BINARY, 148); // [296,297] - Pearl Eye
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Sex-Linked Genes");
+        // [4,5] - Ear size
+        // [12,13] - White face
+        // [14,15] - Dwarf
+        // [16,17] - Dwarf 2
+        // [18,19] - Large ear inhibitor
+        // [20,21] - Tailless gene
+        addLineBreak();
+        addComment("Autosomal Genes");
+        // [10-19] - Neck angle genes
+        // [46,47] - Rose comb
+        // [48,49] - Pea comb
+        // [50,51] - Duplex comb or v comb
+        // [52,53] - Naked neck
+        // [54,55] - Crest
+        // [56,57] - Beard
+        // [58,59] - Foot feathering
+        // [60,61] - Foot feather enhancer
+        // [70,71] - Creeper
+        // [72,73] - Rumpless
+        // [74,75] - Body size genes
+        // [76,77] - Size reducer
+        // [78,79] - Size adder 
+        // [80,81] - Comb size reducer
+        // [82,83] - Comb size adder
+        // [84,85] - Wattle size reducer
+        // [86,87] - Wing placement
+        // [88,89] - Wing tilt
+        // [90,91] - Wing length
+        // [92,93] - Wing thickness
+        // [94-97] - Wing angle multiplier
+        // [102,103] - Vulture hocks
+        // [104,105] - Frizzle
+        // [106,107] - Silkie
+        // [108,109] - Scaleless
+        // [146,147] - Body sizer adder
+        // [148,149] - Body size reducer
+        // [150,151] - Ear tufts
+        // [152-157] - Ear size
+        // [158,159] - Ear size and whitener
+        // [160-163] - More ear size
+        // [164,165] - Ear redness
+        // [168,169] - Long legs
+        // [184,185] - Vault
+        // [186-195] - Body angle genes 1-5
+        // [196,197] - Hen feathering
+        // [198,199] - Feather growth
+        // [222-227] - Bald face genes
+        // [228-235] - Feather fluff reducer
+        // [236-247] - Feather fluff adder
+        // [248-267] - More body angle genes 6-10
+        // [258-267] - Tail angle adder
+        // [268-277] - Tail angle reducer
+        // [278,279] - Extra tail feathers
+        // [282,283] - Short tail feathers
+        // [286-293] - Neck poof adder
+        // [294,295] - Combless
+
+        addCategory("Genetic tests (production)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

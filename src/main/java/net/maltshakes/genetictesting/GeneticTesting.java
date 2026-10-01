@@ -31,8 +31,13 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // TODO
-// Reference genetic bettas github so bettas can also be in test world
-// Figure out what to do with tape measure item
+// Custom custom health scale for llamas?
+// Add species name to gene book title when animal is unnamed (ie. "Unnamed Sheep's Gene Book")
+// Force text to be gray? Prevent resource packs from overwriting color? based on bug report
+// Add a config to disable/enable modules, server config takes priority
+// Change homo lethal to be a red exclamation mark that is placed over the top corner of the allele that you can hover for tooltip explanation.
+// Reference genetic bettas github so bettas can also be in test world teehee
+// Figure out what to do with tape measure item, to nuke or not to nuke
 // Add recessive/phenotype filter with config options and recessive scales
 // Backport to 1.18.2
 

@@ -152,6 +152,54 @@ public class CowGeneFormat extends GeneFormatting {
         addPairMapping("Blaze", "Bl", GeneType.BINARY, 126); // [252,253] - Blaze
         // addPairMapping("Brockling", "Bc", GeneType.BINARY, 127); // [254,255] - Brockling
         addLegacyMapping("Legacy", COW_LEGACY_BELTED_GENES, GeneType.POLYMORPHIC, 9, 4); // [18,19] - Legacy Belted
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        // [12,13] - horns (polled/horns)
+        // [26,27] - bulldog dwarfism (dwarf/wildtype)
+        // [28,29] - dwarfism (wildtype/dwarf)
+        // [30,31] - size reducer
+        // [32,33] - size adder
+        // [34,35] - size variant 1
+        // [36,37] - size variant 2
+        // [38,39] - hump size
+        // [40,41] - hump height
+        // [42,43] - ear size
+        // [44,45] - ear supressor
+        // [46,47] - ear floppiness
+        // [48,49] - smooth coat (smooth/wildtype)
+        // [50,51] - furry coat 1 (wildtype/furry)
+        // [52,53] - furry coat 2 (wildtype/furry)
+        // [54,55] - body type
+        // [70,71] - horn nub 1
+        // [72,73] - horn nub 2
+        // [74,75] - horn nub 3
+        // [76,77] - african horn
+        // [78,79] - scurs
+        // [80,81] - horn length modifier
+        // [82,83] - horn shortener
+        // [84,85] - modifier
+        // [86,87] - horn scale 1
+        // [88,89] - horn scale 2
+        // [90,91] - horn scale 3
+        // [92,93] - horn smoother (1-9999)
+        // [94,95] - horn twist (1-999999)
+        // [96,97] - horn base twist (1-9999)
+        // [98,99] - horn root (1-999)
+        // [100,101] - horn 1, X & Z (1-999)
+        // [102,103] - horn 2, X & Z (1-999)
+        // [104,105] - horn 2, X & Z (1-999)
+        // [106,107] - horn 3, X & Z (1-999)
+        // [108,109] - horn 4, X & Z (1-999) 
+        // [110,111] - horn 5, X & Z (1-999) 
+        // [112,113] - horn 6, X & Z (1-999) 
+        // [114,115] - horn 7, X & Z (1-999) 
+        // [116,117] - horn 8, X & Z (1-999) 
+        // [118,119] - horn 9, X & Z (1-999) 
+        // [122,123] - horn modifer
+
+        addCategory("Genetic tests (production)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

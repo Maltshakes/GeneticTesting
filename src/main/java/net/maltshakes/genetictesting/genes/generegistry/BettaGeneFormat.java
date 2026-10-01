@@ -126,6 +126,22 @@ public class BettaGeneFormat extends GeneFormatting {
         "Min"
     );
 
+    private static final List<String> BETTA_SIZE_GENES = List.of(
+        "0",
+        "+", // Wildtype
+        "2",
+        "3",
+        "4",
+        "5"
+    );
+
+    private static final List<String> BETTA_DUMBO_GENES = List.of(
+        "0",
+        "+", // Wildtype
+        "Br",
+        "Bt"
+    );
+
     public BettaGeneFormat() {
         setBookColour(0x4B52B0); // Blue
         addCategory("Genetic tests (color)");
@@ -214,7 +230,23 @@ public class BettaGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
             IntStream.rangeClosed(86, 91).toArray()  // [86,91] +red marble
         );
-        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale     
+        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale
+        
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addPairMapping("Dumbo", "du", GeneType.BINARY, 28); // [56,57] - Dumbo fins
+        addPairMapping("Dumbo Size", BETTA_DUMBO_GENES, GeneType.POLYMORPHIC, 119); // [238,239] - Dumbo fins size adder
+        addPairMapping("Veiltail", "VT", GeneType.BINARY, 29); // [58,59] - Fin length
+        addPairMapping("Halfmoon", "Hm", GeneType.BINARY, 30); // [60,61] - Halfmoon tail
+        addPairMapping("Doubletail", "dt", GeneType.BINARY, 31); // [62,63] - Doubletail
+        addPairMapping("Crowntail", "Cr", GeneType.BINARY, 32); // [64,65] - Crowntail
+        addPairMapping("Giant Size", "gt", GeneType.BINARY, 83); // [166,167] - Giant size
+        addPairMapping("Size Adder", BETTA_SIZE_GENES, GeneType.POLYMORPHIC, 84); // [168,169] - Size adder
+        addPairMapping("Size Reducer", BETTA_SIZE_GENES, GeneType.POLYMORPHIC, 85); // [170,171] - Size reducer
+
+        addPageBreak();
+        addCategory("Genetic tests (production)");
+        addComment("Bettas do not have any production genes.");
     }
 }
 // spotless:on
