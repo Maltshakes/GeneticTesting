@@ -100,6 +100,10 @@ public class AxolotlGeneFormat extends GeneFormatting {
         addPairMapping("Eye Color", "", GeneType.COLOUR, 11); // [22,23] - RGB value of eyes
         addPairMapping("Gill EP", AXOLOTL_EPGFP_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Gill EP/GFP
         addPairMapping("Gill Color", AXOLOTL_GILL_COLOR_GENES, GeneType.POLYMORPHIC, 20); // [40,41] - Gill colors
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

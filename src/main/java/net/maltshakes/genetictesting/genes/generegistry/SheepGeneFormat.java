@@ -103,7 +103,7 @@ public class SheepGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(74, 81).toArray(), // [74,81] - red rufousing
             IntStream.rangeClosed(82, 89).toArray()  // [82,89] + red rufousing
         );
-        addPairMapping("Mealy", "+", GeneType.BINARY_INVERTED, 45); // [90,91] - Mealy
+        addPairMapping("Mealy", "nm", GeneType.BINARY, 45); // [90,91] - Mealy
         addPairMapping("Blaze", SHEEP_BLAZE_GENES, GeneType.POLYMORPHIC, 51); // [102,103] - Blaze
         addPairMapping("Piebald", "pi", GeneType.BINARY, 4); // [8,9] - Piebald
         addPairMapping("Pigmented Head", SHEEP_PIGMENTED_HEAD_GENES, GeneType.POLYMORPHIC, 34); // [68,69] - Pigmented Head
@@ -113,6 +113,10 @@ public class SheepGeneFormat extends GeneFormatting {
         addLineBreak();
         addConditionalComment("AFL is homo lethal! Sheep with two copies of the gene die at birth", 34, (v1, v2) -> v1 == 2 || v2 == 2);
         addConditionalComment("Rn is homo lethal! Sheep with two copies of the gene die at birth", 50, (v1, v2) -> v1 == 2 || v2 == 2);
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

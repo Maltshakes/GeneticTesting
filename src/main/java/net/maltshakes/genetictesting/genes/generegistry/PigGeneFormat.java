@@ -139,8 +139,8 @@ public class PigGeneFormat extends GeneFormatting {
         addPairMapping("KITLG", "P", GeneType.BINARY, 32); // [64,65] - Oops All Spots
         addPairMapping("Wideband", "w", GeneType.BINARY, 82); // [164,165] - Wideband
         addPolyScaleMapping("Rufousing", PIG_RUFOUS_SCALE, 
-         IntStream.rangeClosed(120, 133).toArray(), // [120-133] -red
-         IntStream.rangeClosed(134, 147).toArray() // [134-147] +red
+            IntStream.rangeClosed(120, 133).toArray(), // [120-133] -red
+            IntStream.rangeClosed(134, 147).toArray() // [134-147] +red
         );
         addPolyRangeMapping("Darkness", PIG_DARKNESS_SCALE, 150, 157); // [150-157] Darkness
         addPolyRangeMapping("Desaturation", PIG_DESAT_SCALE, 192, 201); // [192-201] Desaturation
@@ -151,6 +151,10 @@ public class PigGeneFormat extends GeneFormatting {
         addPairMapping("Blue Eyes", "blu", GeneType.BINARY, 80); // [160,161] Heterochromia
 
         // addPolyRangeMapping("Fat Adder", PIG_FATADDER_SCALE, 174, 181, 10); // [174-181] Fat Adder
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

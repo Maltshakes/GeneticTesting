@@ -65,7 +65,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         addComment("Sex-Linked Genes");
         addSexLinkedPairMapping("Gold", CHICKEN_GOLD_GENES, GeneType.POLYMORPHIC, 0); // [0, 1] // Gold
         addSexLinkedPairMapping("Chocolate", "c", GeneType.BINARY, 1); // [2, 3] // Gold
-        addSexLinkedPairMapping("Barred", "b", GeneType.BINARY, 3); // [6, 7] // Barred
+        addSexLinkedPairMapping("Barred", "Br", GeneType.BINARY, 3); // [6, 7] // Barred
         addSexLinkedPairMapping("Fibro Suppressor", "Id", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
         // Males work same as AGenes. Females carry have two alleles for each locus, but only the first allele of each pair is used for females, second one is ignored.
         // Fuck Omni Genders
@@ -82,6 +82,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         addPairMapping("Lavender", "lav", GeneType.BINARY, 18); // [36,37] - Lavender
         addPairMapping("Splash", "Bl", GeneType.BINARY, 20); // [40,41] - Splash/Blue
         addPairMapping("Cream", "ig", GeneType.BINARY, 142); // [284,285] - Cream/Inhibitor of Gold
+        addPairMapping("Hen Feathering", "HF", GeneType.BINARY, 98); // [196,197] - Hen feathering
         addPairMapping("Dom. white", CHICKEN_DOMWHITE_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Dominant white
         addPairMapping("Rec. white", CHICKEN_RECWHITE_GENES, GeneType.POLYMORPHIC, 10); // [20,21] - Recessive white
         addPairMapping("Autosomal Red", "Ar", GeneType.BINARY_INVERTED, 85); // [170,171] - Autosomal Red
@@ -91,6 +92,10 @@ public class ChickenGeneFormat extends GeneFormatting {
         addPairMapping("Yellow Shanks", CHICKEN_YELSHANK_GENES, GeneType.POLYMORPHIC, 22); // [44,45] - Yellow Shanks
         addPairMapping("Rec. Black Shanks", "bl", GeneType.BINARY, 83); // [166,167] - Recessive Black Shanks
         addPairMapping("Pearl Eye", "prl", GeneType.BINARY, 148); // [296,297] - Pearl Eye
+    
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

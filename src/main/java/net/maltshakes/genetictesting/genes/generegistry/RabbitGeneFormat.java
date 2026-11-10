@@ -44,6 +44,10 @@ public class RabbitGeneFormat extends GeneFormatting{
         addPairMapping("Spotted", "En", GeneType.BINARY, 5); // [10,11] - English Spotting/Broken/Charlie
         addPairMapping("Dutch", "du", GeneType.BINARY, 6); // [12,13] - Dutch
         addPairMapping("Vienna", "v", GeneType.BINARY, 7); // [14,15] - Vienna
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

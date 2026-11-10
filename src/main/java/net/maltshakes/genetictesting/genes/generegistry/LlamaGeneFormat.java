@@ -35,6 +35,10 @@ public class LlamaGeneFormat extends GeneFormatting {
         addPairMapping("Roan", "Rn", GeneType.BINARY_INVERTED, 4); // [8,9] - Roan
         addPairMapping("Piebald", "s", GeneType.BINARY, 5); // [10,11] - Piebald
         addPairMapping("Tuxedo", "Tu", GeneType.BINARY_INVERTED, 6); // [12,13] - Tuxedo
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on

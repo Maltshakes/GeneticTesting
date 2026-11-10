@@ -202,7 +202,7 @@ public class BettaGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(110, 113).toArray(), // [110,113] -bloodred marble
             IntStream.rangeClosed(114, 119).toArray()  // [114,119] +bloodred marble
         );
-        addPolyRangeMapping("Bloodred Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 120, 123, 5); // [120-123] Bloodred marble quality scale  
+        addPolyRangeMapping("Bloodred Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 120, 123, 5); // [120-123] Bloodred marble quality scale
         // Black Marble Layer
         addPolyScaleMapping("Black Marble Size", BETTA_MARBLE_SIZE_SCALE, 
             IntStream.rangeClosed(96, 99).toArray(), // [96,99] -black marble
@@ -214,7 +214,11 @@ public class BettaGeneFormat extends GeneFormatting {
             IntStream.rangeClosed(82, 85).toArray(), // [82,85] -red marble
             IntStream.rangeClosed(86, 91).toArray()  // [86,91] +red marble
         );
-        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale     
+        addPolyRangeMapping("Red Marble Quality", BETTA_MARBLE_QUALITY_SCALE, 92, 95, 5); // [92-95] Red marble quality scale
+
+        addPageBreak();
+        addCategory("Genetic tests (build)");
+        addComment("Coming in future update");
     }
 }
 // spotless:on
