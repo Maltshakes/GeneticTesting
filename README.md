@@ -1,9 +1,9 @@
 # Genetic Testing
 
-This repository hosts a Minecraft modification with which users are able to gain information about the genetics of animals added by the mod `Genetic Animals`.
+Allows users to gene test animals added by the mod `Genetic Animals`.
 
 ## Key Features
-Use a vanilla book on any "Genetic Animals" animal to receive a summary of their genetics in a gene book item.
+Use a vanilla book on any "Genetic Animals" animal to receive a summary of their genetics in a gene book.
 
 ## Getting Started
 ### Prerequisites
@@ -109,32 +109,30 @@ addPolyScaleMapping("Temperament",
 ```
 
 ### Layout & Organization
-Determine the organization of the text on the book pages.
+Determine the layout of the text on the pages.
 
 `addCategory(title)`
-Adds a Bold/Underlined Header for grouping traits.
+Adds a Bold/Underlined Header.
 
 `addLineBreak()`
 Adds an empty line to separate entries.
 
 `addPageBreak()`
-Forces the next entry to start in a new column, each page is its own column.
+Forces the next entry to start on a new page.
 
 ### Comments & Logic
-Add context or warnings based on the animal's specific genetic makeup.
-
 `addComment(text)`
-Adds static italicized text. Perfect for flavor text or static notes.
+Adds italicized text for flavor text or permanent notes.
 
 `addConditionalComment(text, dataIndex, condition)`
-Also italicized text. Used for the "Lethal Genes". This comment only appears if the specific gene pair meets the defined logic.
+Also italicized text. Used for the "Lethal Genes". This comment only appears if the specific gene pair meets the defined requirement.
 Example: addConditionalComment("§4Warning!", 10, (v1, v2) -> v1 == 2 || v2 == 2);
 This means if either gene of the 10th dataIndex gene ([20, 21] in the AGenes array) is present, it displays the comment "Warning!" in red.
 
 ### Book Colour Customization
 
 `setBookColour(int colour)`
-Sets the hex colour of the Gene Book covers for this specific animal.
+Determines the hex colour of the Gene Book covers for a specific animal.
 Example: setBookColour(0xF38B35); // Orange
 
 ## Troubleshooting
@@ -163,4 +161,4 @@ This mod was created by Maltshakes and VespeneGas.
 ## Acknowledgements
 
  - [Genetic Animals on CurseForge](https://www.curseforge.com/minecraft/mc-mods/genetic-animals)
- - [mortuusars for book GUI](https://www.curseforge.com/minecraft/mc-mods/scholar)
+ - [mortuusars for the book GUI](https://www.curseforge.com/minecraft/mc-mods/scholar)
