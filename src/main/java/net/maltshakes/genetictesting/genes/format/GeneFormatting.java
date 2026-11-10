@@ -422,13 +422,9 @@ public abstract class GeneFormatting {
             }
         }
 
-        // Calculate the index for the List<String> mappings
-        // The lowest possible sum is -negIndices.length
-        // Offset the totalSum by the negative count to start the array at 0
         int minPossible = -poly.negIndices.length;
         int listIndex = totalSum - minPossible;
 
-        // Safety clamp
         listIndex = Math.max(0, Math.min(listIndex, poly.mappings.size() - 1));
 
         return Component.literal(poly.mappings.get(listIndex));

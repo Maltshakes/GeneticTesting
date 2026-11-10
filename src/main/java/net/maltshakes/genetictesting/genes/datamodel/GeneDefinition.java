@@ -6,7 +6,7 @@ import java.util.List;
  * Defines the metadata and formatting rules for a specific gene.
  *
  * <p>This class acts as a template for how genetic data should be interpreted and displayed in the
- * book. It includes a human-readable label, a list of possible string mappings for values, and a
+ * book. It includes a label, a list of possible string mappings for values, and a
  * type that dictates the formatting logic applied.
  */
 public class GeneDefinition {
@@ -45,26 +45,15 @@ public class GeneDefinition {
         return priority;
     }
 
-    /**
-     * GeneTypes that will be handled differently through mapGenes in GeneFormatting.
-     *
-     * <p>BINARY means there are two choices, with wildtype ("+") first, then the gene.
-     *
-     * <p>BINARY_INVERTED means there are two choices, where the gene will be first, then the
-     * wildtype. POLYMORPHIC means the gene is polymorphic and has multiple choices. COLOUR means
-     * the gene relates to a colour and transforms HSB to RGB. SCALE refers to math calculation
-     * (unused). OTHER is for options that don't relate to genes or formatting, but categories. SKIP
-     * refers to genes that should be skipped during recording in the book.
-     */
     public enum GeneType {
-        BINARY,
-        BINARY_INVERTED,
-        POLYMORPHIC,
-        SCALE,
-        COLOUR,
-        OTHER,
-        LINE_BREAK,
-        PAGE_BREAK,
-        SKIP
+        BINARY, // means there are two choices, with wildtype ("+") first, then the gene
+        BINARY_INVERTED, // means there are two choices, where the gene will be first, then the wildtype
+        POLYMORPHIC, // gene has multiple choices
+        SCALE, // refers to math calculation
+        COLOUR, // relates to a colour and transforms HSB to RGB
+        OTHER, // is for options that don't relate to genes or formatting, but categories
+        LINE_BREAK, // empty line recorded in the book
+        PAGE_BREAK, // next line will start on the next page
+        SKIP // genes that should be skipped during recording in the book
     }
 }

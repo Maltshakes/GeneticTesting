@@ -4,23 +4,11 @@ import javax.annotation.Nullable;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
-/**
- * Represents a single entry line within the Gene Book.
- *
- * <p>This class serves as a view-model, transforming raw genetic data into human-readable {@link
- * Component} objects. It supports three distinct formats:
- *
- * <ul>
- *   <li>{@link Type#HEADER}: A section title used to group genes.
- *   <li>{@link Type#GENE_PAIR}: A labeled row displaying two genetic values (Allele 1 | 2).
- *   <li>{@link Type#COMMENT}: A descriptive or conditional text entry.
- * </ul>
- */
 public class BookEntry {
     public enum Type {
-        HEADER,
-        GENE_PAIR,
-        COMMENT
+        HEADER, // section title used to group genes
+        GENE_PAIR, // labeled row displaying two genetic values (Allele 1 | 2)
+        COMMENT // descriptive or conditional text entry.
     }
 
     public final Type type;

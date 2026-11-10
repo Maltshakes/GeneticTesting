@@ -27,8 +27,8 @@ public class LlamaGeneFormat extends GeneFormatting {
 
     private static final List<String> LLAMA_BANANA_GENES = List.of(
         "0",
-        "+", // No Banana/wildtype
-        "B", // Banana
+        "NB", // No Banana
+        "+", // Banana/Wildtype
         "bl" // Bananaless
     );
 

@@ -22,7 +22,7 @@ public class LivestockTapeMeasureItem extends Item {
             LivingEntity inInteractionTarget,
             InteractionHand inUsedHand) {
         String entityType = EntityType.getKey(inInteractionTarget.getType()).toString();
-        String heightUnit = "m";
+        String heightUnit = "block(s)";
         // Find Entity Type dimensions
         EntityDimensions dims = inInteractionTarget.getDimensions(inInteractionTarget.getPose());
         // Transform height (from float) to a string

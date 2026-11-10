@@ -196,6 +196,7 @@ public class PigGeneFormat extends GeneFormatting {
         // [116,117] - ear size 19
         // [118,119] - ear size 20
         
+        addPageBreak();
         addCategory("Genetic tests (production)");
         addComment("Coming in future update");
         // addPolyRangeMapping("Fat Adder", PIG_FATADDER_SCALE, 174, 181, 10); // [174-181] Fat Adder

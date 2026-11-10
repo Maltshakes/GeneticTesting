@@ -240,7 +240,7 @@ public class BettaGeneFormat extends GeneFormatting {
         addPairMapping("Halfmoon", "Hm", GeneType.BINARY, 30); // [60,61] - Halfmoon tail
         addPairMapping("Doubletail", "dt", GeneType.BINARY, 31); // [62,63] - Doubletail
         addPairMapping("Crowntail", "Cr", GeneType.BINARY, 32); // [64,65] - Crowntail
-        addPairMapping("Giant Size", "gt", GeneType.BINARY, 83); // [166,167] - Giant size
+        addPairMapping("Giant Size", "Gt", GeneType.BINARY, 83); // [166,167] - Giant size
         addPairMapping("Size Adder", BETTA_SIZE_GENES, GeneType.POLYMORPHIC, 84); // [168,169] - Size adder
         addPairMapping("Size Reducer", BETTA_SIZE_GENES, GeneType.POLYMORPHIC, 85); // [170,171] - Size reducer
 

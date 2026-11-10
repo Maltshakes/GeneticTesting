@@ -127,7 +127,7 @@ public class GeneticTesting {
             ItemStack stack = event.getItemStack();
             Player player = event.getEntity();
             Entity target = event.getTarget();
-            // Check if item is a vanilla book and player interacts with LivingEntity
+            // Check if item is a vanilla book and player interacts with an
             if (stack.is(Items.BOOK)
                     && target instanceof LivingEntity livingTarget
                     && target instanceof EnhancedAnimalAbstract) {

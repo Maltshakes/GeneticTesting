@@ -113,6 +113,9 @@ public class AxolotlGeneFormat extends GeneFormatting {
         addPairMapping("Splash Expansion", AXOLOTL_SPLOTCH_STRENGTH_GENES, GeneType.POLYMORPHIC, 7); // [14,15] - Strength of splash gene expression, uses above formula
         addPairMapping("Speck Factor", AXOLOTL_SPLOTCH_TYPE_GENES, GeneType.POLYMORPHIC, 8); // [16,17] - Splotch cleanliness, higher number is dominant, 1-2 is clean edges, 3-4 is hard speckle, 5-6 is soft speckle. As factor gets higher the white gets messier
         addPairMapping("Cheekspots", "CS", GeneType.BINARY, 22); // [44,45] - Cheekspots
+        // new blaze marking, patreon only for now, will be added to public version later
+        // [42,43] - brindle marking, patreon only for now, will be added to public version later
+
         addPageBreak();
         addCategory("Extra pigments");
         addComment("Need EP or GFP to express color hues");
@@ -131,7 +134,7 @@ public class AxolotlGeneFormat extends GeneFormatting {
         addPairMapping("Size Adder", AXOLOTL_SIZE_GENES, GeneType.POLYMORPHIC, 14); // [28,29] - Increases size (dominant)
         addPairMapping("Miniature", AXOLOTL_MINIATURE_GENES, GeneType.POLYMORPHIC, 15); // [30,31] - Decreases size (recessive) 
         addPairMapping("Long Body", "lb", GeneType.BINARY, 16); // [32,33] - Long body
-        addPairMapping("Long Tail", "lt", GeneType.BINARY, 13); // [26,27] - Long tail
+        addPairMapping("Long Tail", "Lt", GeneType.BINARY, 13); // [26,27] - Long tail
 
         addPageBreak();
         addCategory("Genetic tests (production)");

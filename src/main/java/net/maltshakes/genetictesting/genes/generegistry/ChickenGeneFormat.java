@@ -1,6 +1,7 @@
 package net.maltshakes.genetictesting.genes.generegistry;
 
 import java.util.List;
+
 import net.maltshakes.genetictesting.genes.datamodel.GeneDefinition.GeneType;
 import net.maltshakes.genetictesting.genes.format.GeneFormatting;
 
@@ -58,13 +59,61 @@ public class ChickenGeneFormat extends GeneFormatting {
         "sy" // Superyellow
     );
 
+    private static final List<String> CHICKEN_EAR_SIZE_GENES = List.of(
+        "0",
+        "1", 
+        "2",
+        "3",
+        "4",
+        "5",
+        "6" 
+    );
+
+    private static final List<String> CHICKEN_ROSE_COMB_GENES = List.of(
+        "0",
+        "R1", // Rose1
+        "R2", // Rose2
+        "+" // Wildtype
+    );
+
+    private static final List<String> CHICKEN_DUPLEX_COMB_GENES = List.of(
+        "0",
+        "+", // Wildtype
+        "Dv", // Duplex V
+        "Dc" // Duplex C
+    );
+
+    private static final List<String> CHICKEN_CREST_GENES = List.of(
+        "0",
+        "Nc", // Normal Crest
+        "Fc", // Forward Crest
+        "+" // Wildtype
+    );
+
+    private static final List<String> CHICKEN_FOOT_FEATHER_GENES = List.of(
+        "0",
+        "Sfe", // Small Foot Feather
+        "Bfe", // Big Foot Feather
+        "+" // Wildtype
+    );
+
+    private static final List<String> CHICKEN_EAR_WHITE_GENES = List.of(
+        "0",
+        "re", // Reducer
+        "+", // Wildtype
+        "s", // Adds size
+        "w", // Adds white
+        "sw" // Adds white and size
+
+    );
+
     // Maps the genes of a chicken
     public ChickenGeneFormat() {
         setBookColour(0xF38B35); // Orange
         addCategory("Genetic tests (color)");
         addComment("Sex-Linked Genes");
         addSexLinkedPairMapping("Gold", CHICKEN_GOLD_GENES, GeneType.POLYMORPHIC, 0); // [0, 1] // Gold
-        addSexLinkedPairMapping("Chocolate", "c", GeneType.BINARY, 1); // [2, 3] // Gold
+        addSexLinkedPairMapping("Chocolate", "c", GeneType.BINARY, 1); // [2, 3] // Chocolate
         addSexLinkedPairMapping("Barred", "b", GeneType.BINARY, 3); // [6, 7] // Barred
         addSexLinkedPairMapping("Fibro Suppressor", "Id", GeneType.BINARY, 4); // [8, 9] // Fibromelanin Suppressor
         // Males work same as AGenes. Females carry have two alleles for each locus, but only the first allele of each pair is used for females, second one is ignored.
@@ -82,6 +131,7 @@ public class ChickenGeneFormat extends GeneFormatting {
         addPairMapping("Lavender", "lav", GeneType.BINARY, 18); // [36,37] - Lavender
         addPairMapping("Splash", "Bl", GeneType.BINARY, 20); // [40,41] - Splash/Blue
         addPairMapping("Cream", "ig", GeneType.BINARY, 142); // [284,285] - Cream/Inhibitor of Gold
+        addPairMapping("Hen Feathering", "HF", GeneType.BINARY, 98); // [196,197] - Hen feathering
         addPairMapping("Dom. white", CHICKEN_DOMWHITE_GENES, GeneType.POLYMORPHIC, 19); // [38,39] - Dominant white
         addPairMapping("Rec. white", CHICKEN_RECWHITE_GENES, GeneType.POLYMORPHIC, 10); // [20,21] - Recessive white
         addPairMapping("Autosomal Red", "Ar", GeneType.BINARY_INVERTED, 85); // [170,171] - Autosomal Red
@@ -95,63 +145,74 @@ public class ChickenGeneFormat extends GeneFormatting {
         addPageBreak();
         addCategory("Genetic tests (build)");
         addComment("Sex-Linked Genes");
-        // [4,5] - Ear size
-        // [12,13] - White face
-        // [14,15] - Dwarf
-        // [16,17] - Dwarf 2
-        // [18,19] - Large ear inhibitor
-        // [20,21] - Tailless gene
+        addSexLinkedPairMapping("Ear Size", CHICKEN_EAR_SIZE_GENES, GeneType.POLYMORPHIC, 2); // [4,5] - Ear size
+        addSexLinkedPairMapping("Ear Inhib.", "ei", GeneType.BINARY, 9); // [18,19] - Large ear inhibitor
+        addSexLinkedPairMapping("White Face", CHICKEN_EAR_SIZE_GENES, GeneType.POLYMORPHIC, 6); // [12,13] - White face
+        addSexLinkedPairMapping("Dwarf1", "dw1", GeneType.BINARY, 7); // [14,15] - Dwarf
+        addSexLinkedPairMapping("Dwarf2", "dw2", GeneType.BINARY, 8); // [16,17] - Dwarf 2
+        addSexLinkedPairMapping("Tailless", "T", GeneType.BINARY, 10); // [20,21] - Tailless gene
+
         addLineBreak();
         addComment("Autosomal Genes");
-        // [10-19] - Neck angle genes
-        // [46,47] - Rose comb
-        // [48,49] - Pea comb
-        // [50,51] - Duplex comb or v comb
-        // [52,53] - Naked neck
-        // [54,55] - Crest
-        // [56,57] - Beard
-        // [58,59] - Foot feathering
-        // [60,61] - Foot feather enhancer
-        // [70,71] - Creeper
-        // [72,73] - Rumpless
-        // [74,75] - Body size genes
-        // [76,77] - Size reducer
-        // [78,79] - Size adder 
-        // [80,81] - Comb size reducer
-        // [82,83] - Comb size adder
-        // [84,85] - Wattle size reducer
-        // [86,87] - Wing placement
-        // [88,89] - Wing tilt
-        // [90,91] - Wing length
-        // [92,93] - Wing thickness
-        // [94-97] - Wing angle multiplier
-        // [102,103] - Vulture hocks
-        // [104,105] - Frizzle
-        // [106,107] - Silkie
-        // [108,109] - Scaleless
-        // [146,147] - Body sizer adder
-        // [148,149] - Body size reducer
-        // [150,151] - Ear tufts
-        // [152-157] - Ear size
-        // [158,159] - Ear size and whitener
-        // [160-163] - More ear size
-        // [164,165] - Ear redness
-        // [168,169] - Long legs
-        // [184,185] - Vault
-        // [186-195] - Body angle genes 1-5
-        // [196,197] - Hen feathering
-        // [198,199] - Feather growth
-        // [222-227] - Bald face genes
+        // [104,105] - Frizzle (doesn't spawn right now)
+        addPairMapping("Silkie", "si", GeneType.BINARY, 53); // [106,107] - Silkie
+        addPairMapping("Scaleless", "sc", GeneType.BINARY, 54); // [108,109] - Scaleless
         // [228-235] - Feather fluff reducer
         // [236-247] - Feather fluff adder
+        
+        addPairMapping("Combless", "cl", GeneType.BINARY, 147); // [294,295] - Combless
+        addPairMapping("Rose Comb", CHICKEN_ROSE_COMB_GENES, GeneType.POLYMORPHIC, 23); // [46,47] - Rose comb
+        addPairMapping("Pea Comb", "P", GeneType.BINARY_INVERTED, 24); // [48,49] - Pea comb
+        addPairMapping("Duplex Comb", CHICKEN_DUPLEX_COMB_GENES, GeneType.POLYMORPHIC, 25); // [50,51] - Duplex comb or v comb 
+        addPairMapping("Small Comb", "Sc", GeneType.BINARY_INVERTED, 40); // [80,81] - Small comb
+        addPairMapping("Large Comb", "Lc", GeneType.BINARY_INVERTED, 41); // [82,83] - Large comb
+        // new comb floppiness gene
+
+        addPairMapping("Wattle Reduc.", "wr", GeneType.BINARY_INVERTED, 42); // [84,85] - Wattle size reducer
+        addPairMapping("Crest", CHICKEN_CREST_GENES, GeneType.POLYMORPHIC, 27); // [54,55] - Crest 
+        // [222-227] - Bald face genes
+        addPairMapping("Beard", "MB", GeneType.BINARY_INVERTED, 28); // [56,57] - Beard 
+
+        // [152-157, 160-163] - Ear size
+        addPairMapping("White Ear Size", CHICKEN_EAR_WHITE_GENES, GeneType.POLYMORPHIC, 79); // [158,159] - Ear size and whitener
+        // [164,165] - Ear redness
+        addPairMapping("Ear Tufts", "Et", GeneType.BINARY, 75); // [150,151] - Ear tufts (homo lethal)
+
+        addPairMapping("Naked Neck", "Na", GeneType.BINARY_INVERTED, 26); // [52,53] - Naked neck
+        // [286-293] - Neck poof adder
+        // [10-19] - Neck angle genes 
+
+        // [74,75] - Body size genes
+        // [76,77] - body? size reducer
+        addPairMapping("Body Size Adder", "Bla", GeneType.BINARY, 39); // [78,79] - body? size adder
+        // [146,147] - Body sizer adder
+        // [148,149] - Body size reducer
+        // [184,185] - Vault, only affects health
+        // [186-195] - Body angle genes 1-5
         // [248-267] - More body angle genes 6-10
+
+        // [86,87] - Wing placement
+        // [90,91] - Wing length
+        // [92,93] - Wing thickness
+        // [88,89] - Wing tilt
+        // [94-97] - Wing angle multiplier
+        
+        // [72,73] - Rumpless (homo lethal)
+        // [198,199] - Tail Feather growth
+        addPairMapping("Extra TF", "Tf", GeneType.BINARY, 139); // [278,279] - Extra tail feathers
+        // [280,281] - Non molting gene
+        // [282,283] - Short tail feathers
+        // new tail pinch gene
         // [258-267] - Tail angle adder
         // [268-277] - Tail angle reducer
-        // [278,279] - Extra tail feathers
-        // [282,283] - Short tail feathers
-        // [286-293] - Neck poof adder
-        // [294,295] - Combless
 
+        addPairMapping("Foot Feather", CHICKEN_FOOT_FEATHER_GENES, GeneType.POLYMORPHIC, 29); // [58,59] - Foot feathering 
+        addPairMapping("FF Enhancer", "fe", GeneType.BINARY_INVERTED, 30); // [60,61] - Foot feather enhancer
+        addPairMapping("Vulture Hocks", "v", GeneType.BINARY, 51); // [102,103] - Vulture hocks
+        addPairMapping("Long Legs", "LL", GeneType.BINARY, 84); // [168,169] - Long legs
+        addPairMapping("Creeper", "Cp", GeneType.BINARY, 35); // [70,71] - Creeper (homo lethal)
+
+        addPageBreak();
         addCategory("Genetic tests (production)");
         addComment("Coming in future update");
     }
