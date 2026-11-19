@@ -11,7 +11,7 @@ public class TurtleGeneFormat extends GeneFormatting{
         "0",
         "+", // Wildtype
         "So", // Solid
-        "Fl", // Flame
+        "fl", // Flame
         "pl" // Patternless
     );
 
